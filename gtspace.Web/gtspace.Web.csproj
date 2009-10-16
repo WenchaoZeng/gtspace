@@ -53,8 +53,10 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\Admin.aspx" />
     <Content Include="Admin\Default.aspx" />
     <Content Include="Admin\后台管理.txt" />
+    <Content Include="app_error.html" />
     <Content Include="Codes\一些基于UI的类.txt" />
     <Content Include="Database\Access2003数据库.txt" />
     <Content Include="Database\gtspace.mdb">
@@ -73,11 +75,19 @@
     <Content Include="Templates\Default\Styles\样式.txt" />
     <Content Include="Templates\Default\默认模板.txt" />
     <Content Include="Templates\前台模板.txt" />
+    <Content Include="TestCase\zwc_test1.aspx" />
     <Content Include="Upload\上传的文件.txt" />
     <Content Include="Web.config" />
     <Content Include="用户接口层.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\Admin.aspx.cs">
+      <DependentUpon>Admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Admin.aspx.designer.cs">
+      <DependentUpon>Admin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -96,6 +106,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestCase\zwc_test1.aspx.cs">
+      <DependentUpon>zwc_test1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestCase\zwc_test1.aspx.designer.cs">
+      <DependentUpon>zwc_test1.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\gtspace.Common\gtspace.Common.csproj">
