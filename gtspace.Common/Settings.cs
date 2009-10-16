@@ -13,37 +13,8 @@ namespace gtspace.Common
     /// </summary>
     public static class Settings
     {
-		#region 私有变量
+		#region 公有属性
 
-		/// <summary>
-		/// 网站的根域名, 如 : http://www.baidu.com/
-		/// </summary>
-		static string _rootUrl = string.Empty;
-
-		/// <summary>
-		/// 网站的根目录, 如 : C:\wwwroot\
-		/// </summary>
-		static string _rootPath = string.Empty;
-
-		/// <summary>
-		/// 数据库连接字符串
-		/// </summary>
-		static string _connectionString = string.Empty;
-
-		/// <summary>
-		/// 系统错误页面的路径, 如 : ~/app_error.html
-		/// </summary>
-		static string _errorPage = "~/app_error.html";
-
-		/// <summary>
-		/// Url地址重写规则列表
-		/// </summary>
-		static List<RewriteRule> _rewriteRules = null;
-
-		#endregion
-
-
-		#region 属性
 		/// <summary>
 		/// 网站的根域名, 如 : http://www.baidu.com/
 		/// </summary>
@@ -126,10 +97,56 @@ namespace gtspace.Common
 		 }
 		 get
 		 {
+			 if (_rewriteRules == null)
+			 {
+				 LoadRewriteRules();
+			 }
 			 return _rewriteRules;
 		 }
 		}
 
 		#endregion
-    }
+
+		#region 公有方法
+
+		/// <summary>
+		/// 加载Url重写规则列表
+		/// </summary>
+		public static void LoadRewriteRules()
+		{
+			_rewriteRules = new List<RewriteRule>();
+			_rewriteRules.Add(new RewriteRule() { From="abc.aspx", To="TestCase/zwc_test1.aspx"});
+		}
+
+		#endregion
+
+		#region 私有变量
+
+		/// <summary>
+		/// 网站的根域名, 如 : http://www.baidu.com/
+		/// </summary>
+		static string _rootUrl = string.Empty;
+
+		/// <summary>
+		/// 网站的根目录, 如 : C:\wwwroot\
+		/// </summary>
+		static string _rootPath = string.Empty;
+
+		/// <summary>
+		/// 数据库连接字符串
+		/// </summary>
+		static string _connectionString = string.Empty;
+
+		/// <summary>
+		/// 系统错误页面的路径, 如 : ~/app_error.html
+		/// </summary>
+		static string _errorPage = "~/app_error.html";
+
+		/// <summary>
+		/// Url地址重写规则列表
+		/// </summary>
+		static List<RewriteRule> _rewriteRules = null;
+
+		#endregion
+	}
 }

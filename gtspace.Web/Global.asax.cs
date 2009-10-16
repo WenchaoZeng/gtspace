@@ -62,7 +62,7 @@ namespace gtspace.Web
 
         protected void Application_BeginRequest(object sender, EventArgs e)
         {
-
+			Utilitys.UrlRewriter.RewriteUrl();
         }
 
         protected void Application_AuthenticateRequest(object sender, EventArgs e)

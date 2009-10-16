@@ -56,7 +56,8 @@
     <Content Include="Admin\Admin.aspx" />
     <Content Include="Admin\Default.aspx" />
     <Content Include="Admin\后台管理.txt" />
-    <Content Include="app_error.html" />
+    <Content Include="Error\404_error.html" />
+    <Content Include="Error\app_error.html" />
     <Content Include="Codes\一些基于UI的类.txt" />
     <Content Include="Database\Access2003数据库.txt" />
     <Content Include="Database\gtspace.mdb">

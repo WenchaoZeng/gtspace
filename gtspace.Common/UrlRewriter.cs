@@ -13,6 +13,9 @@ namespace gtspace.Common
     /// </summary>
     public class UrlRewriter
     {
+		/// <summary>
+		/// 执行Url重写
+		/// </summary>
 		public void RewriteUrl()
 		{
 			// 尝试全部生成规则
