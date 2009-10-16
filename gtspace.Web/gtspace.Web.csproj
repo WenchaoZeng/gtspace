@@ -120,10 +120,6 @@
       <Project>{9915FE04-94DE-4612-8900-9EAAAE5BF027}</Project>
       <Name>gtspace.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\gtspace.DataFactory\gtspace.DataFactory.csproj">
-      <Project>{A514EA75-E239-4FCD-8176-EF50F73794D9}</Project>
-      <Name>gtspace.DataFactory</Name>
-    </ProjectReference>
     <ProjectReference Include="..\gtspace.Data\gtspace.Data.csproj">
       <Project>{C356F7E2-23D0-4A3E-88DB-E70B9475B14C}</Project>
       <Name>gtspace.Data</Name>

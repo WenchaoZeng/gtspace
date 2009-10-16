@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gtspace.Common", "gtspace.C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gtspace.Entity", "gtspace.Entity\gtspace.Entity.csproj", "{A6D15EC6-BF3A-4457-8F73-9DE5E3F942D0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gtspace.DataFactory", "gtspace.DataFactory\gtspace.DataFactory.csproj", "{A514EA75-E239-4FCD-8176-EF50F73794D9}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gtspace.ServerControls", "gtspace.ServerControls\gtspace.ServerControls.csproj", "{6A472214-1425-436D-94D0-D21F0FB5699E}"
 EndProject
 Global
@@ -35,10 +33,6 @@ Global
 		{A6D15EC6-BF3A-4457-8F73-9DE5E3F942D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A6D15EC6-BF3A-4457-8F73-9DE5E3F942D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A6D15EC6-BF3A-4457-8F73-9DE5E3F942D0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A514EA75-E239-4FCD-8176-EF50F73794D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A514EA75-E239-4FCD-8176-EF50F73794D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A514EA75-E239-4FCD-8176-EF50F73794D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A514EA75-E239-4FCD-8176-EF50F73794D9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6A472214-1425-436D-94D0-D21F0FB5699E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6A472214-1425-436D-94D0-D21F0FB5699E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A472214-1425-436D-94D0-D21F0FB5699E}.Release|Any CPU.ActiveCfg = Release|Any CPU
