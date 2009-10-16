@@ -4,7 +4,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Configuration;
 using gtspace.Entity;
+using System.Web.Configuration;
 
 namespace gtspace.Common
 {
@@ -12,7 +14,7 @@ namespace gtspace.Common
     /// 网站公共设置
     /// </summary>
     public static class Settings
-    {
+	{
 		#region 公有属性
 
 		/// <summary>
@@ -113,6 +115,7 @@ namespace gtspace.Common
 			set
 			{
 				_currentTemplate = value;
+				SetAppSetting("CurrentTemplate", value);
 			}
 			get
 			{
@@ -122,7 +125,7 @@ namespace gtspace.Common
 
 		#endregion 公有属性
 
-		#region 公有方法
+		#region 方法
 
 		/// <summary>
 		/// 加载Url重写规则列表
@@ -136,7 +139,46 @@ namespace gtspace.Common
 			}
 		}
 
+		/// <summary>
+		/// 设置Web.config里appSettings的值
+		/// </summary>
+		/// <param name="key">键</param>
+		/// <param name="value">值</param>
+		static void SetAppSetting(string key, string value)
+		{
+			string configPath = "~";
+			Configuration config = WebConfigurationManager.OpenWebConfiguration(configPath);
+			AppSettingsSection appSettings = config.AppSettings;
+			appSettings.Settings[key].Value = value;
+			config.Save();
+		}
+
 		#endregion 公有方法
+
+		#region 构造函数
+
+		static Settings()
+		{
+			// 连接字符串
+			if (!string.IsNullOrEmpty(ConfigurationManager.AppSettings["ConnectionString"]))
+			{
+				_connectionString = ConfigurationManager.AppSettings["ConnectionString"];
+			}
+
+			// 日志目录
+			if (!string.IsNullOrEmpty(ConfigurationManager.AppSettings["LogPath"]))
+			{
+				LogPath = ConfigurationManager.AppSettings["LogPath"];
+			}
+
+			// 当前模板
+			if (!string.IsNullOrEmpty(ConfigurationManager.AppSettings["CurrentTemplate"]))
+			{
+				_currentTemplate = ConfigurationManager.AppSettings["CurrentTemplate"];
+			}
+		}
+
+		#endregion
 
 		#region 私有变量
 

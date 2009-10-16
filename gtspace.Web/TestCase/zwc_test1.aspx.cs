@@ -18,7 +18,6 @@ namespace gtspace.Web.TestCase
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			Response.Write("Hello Wrold !");
 		}
 	}
 }
