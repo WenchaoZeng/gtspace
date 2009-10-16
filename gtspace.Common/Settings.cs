@@ -200,7 +200,7 @@ namespace gtspace.Common
 		/// <summary>
 		/// 系统错误页面的路径, 如 : ~/app_error.html
 		/// </summary>
-		static string _errorPage = "~/app_error.html";
+		static string _errorPage = "~/Error/app_error.html";
 
 		/// <summary>
 		/// Url地址重写规则列表
