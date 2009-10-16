@@ -20,14 +20,14 @@ namespace gtspace.Common
 		/// </summary>
 		public static string RootUrl
 		{
-		 get
-		 {
-			 return _rootPath;
-		 }
-		 set
-		 {
-			 _rootPath = value;
-		 }
+			 get
+			 {
+				 return _rootPath;
+			 }
+			 set
+			 {
+				 _rootPath = value;
+			 }
 		}
 
 		/// <summary>
@@ -35,14 +35,14 @@ namespace gtspace.Common
 		/// </summary>
 		public static string RootPath
 		{
-		 get
-		 {
-			 return _rootPath;
-		 }
-		 set
-		 {
-			 _rootPath = value;
-		 }
+			 get
+			 {
+				 return _rootPath;
+			 }
+			 set
+			 {
+				 _rootPath = value;
+			 }
 		}
 
 		/// <summary>
@@ -50,14 +50,14 @@ namespace gtspace.Common
 		/// </summary>
 		public static string ConnectionString
 		{
-		 get
-		 {
-			 return _connectionString;
-		 }
-		 set
-		 {
-			 _connectionString = value;
-		 }
+			 get
+			 {
+				 return _connectionString;
+			 }
+			 set
+			 {
+				 _connectionString = value;
+			 }
 		}
 
 		/// <summary>
@@ -76,14 +76,14 @@ namespace gtspace.Common
 		/// </summary>
 		public static string LogPath
 		{
-		 set
-		 {
-			 Utilitys.Log = new LogHelper(value);
-		 }
-		 get
-		 {
-			 return (Utilitys.Log == null) ? string.Empty : Utilitys.Log.LogPath;
-		 }
+			 set
+			 {
+				 Utilitys.Log = new LogHelper(value);
+			 }
+			 get
+			 {
+				 return (Utilitys.Log == null) ? string.Empty : Utilitys.Log.LogPath;
+			 }
 		}
 
 		/// <summary>
@@ -91,21 +91,36 @@ namespace gtspace.Common
 		/// </summary>
 		public static List<RewriteRule> RewriteRules
 		{
-		 set
-		 {
-			 _rewriteRules = value;
-		 }
-		 get
-		 {
-			 if (_rewriteRules == null)
+			 set
 			 {
-				 LoadRewriteRules();
+				 _rewriteRules = value;
 			 }
-			 return _rewriteRules;
-		 }
+			 get
+			 {
+				 if (_rewriteRules == null)
+				 {
+					 LoadRewriteRules();
+				 }
+				 return _rewriteRules;
+			 }
 		}
 
-		#endregion
+		/// <summary>
+		/// 获取或设置当前正在使用的模板名称, 如 : Default
+		/// </summary>
+		public static string CurrentTemplate
+		{
+			set
+			{
+				_currentTemplate = value;
+			}
+			get
+			{
+				return _currentTemplate;
+			}
+		}
+
+		#endregion 公有属性
 
 		#region 公有方法
 
@@ -114,11 +129,14 @@ namespace gtspace.Common
 		/// </summary>
 		public static void LoadRewriteRules()
 		{
-			_rewriteRules = new List<RewriteRule>();
-			_rewriteRules.Add(new RewriteRule() { From="abc.aspx", To="TestCase/zwc_test1.aspx"});
+			TemplateInfo info = Utilitys.Template.LoadConfig(RootPath + "Templates\\" + CurrentTemplate + "\\Config.xml");
+			if (info.RewriteRules != null)
+			{
+				_rewriteRules = info.RewriteRules;
+			}
 		}
 
-		#endregion
+		#endregion 公有方法
 
 		#region 私有变量
 
@@ -147,6 +165,11 @@ namespace gtspace.Common
 		/// </summary>
 		static List<RewriteRule> _rewriteRules = null;
 
-		#endregion
+		/// <summary>
+		/// 当前正在使用的模板名称, 如 : Default
+		/// </summary>
+		static string _currentTemplate = "Default";
+
+		#endregion 私有变量
 	}
 }

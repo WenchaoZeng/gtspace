@@ -29,5 +29,10 @@ namespace gtspace.Common
 		/// 网页Url地址重写器
 		/// </summary>
 		public static UrlRewriter UrlRewriter = new UrlRewriter();
+
+		/// <summary>
+		/// 模板帮助器
+		/// </summary>
+		public static TemplateHelper Template = new TemplateHelper();
     }
 }

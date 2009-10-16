@@ -71,6 +71,7 @@
     <Content Include="Templates\Default\Blocks\页面块.txt" />
     <Content Include="Templates\Default\Config.xml" />
     <Content Include="Templates\Default\Images\Html里直接调用的图片.txt" />
+    <Content Include="Templates\Default\index.aspx" />
     <Content Include="Templates\Default\Scripts\Javascript文件.txt" />
     <Content Include="Templates\Default\Styles\Images\样式表调用的图片.txt" />
     <Content Include="Templates\Default\Styles\样式.txt" />
@@ -107,6 +108,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Templates\Default\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Templates\Default\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
     <Compile Include="TestCase\zwc_test1.aspx.cs">
       <DependentUpon>zwc_test1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
