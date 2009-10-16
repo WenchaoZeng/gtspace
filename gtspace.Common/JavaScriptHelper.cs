@@ -1,6 +1,6 @@
 ﻿/// Author : 曾文超
 /// Create Date : 2009年7月14
-/// Modified Date : 2009年10月16日, 精简了方法名称
+/// Modified by zwc at 2009年10月16日, 精简了方法名称
 using System;
 using System.Collections.Generic;
 using System.Linq;

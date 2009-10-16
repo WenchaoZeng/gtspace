@@ -1,8 +1,9 @@
-﻿using System;
+﻿/// Modified by zwc at 2009年10月16日,	去掉了一些多余的属性和成员
+/// 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using gtspace.Entity;
 
 namespace gtspace.Common
 {
@@ -12,17 +13,6 @@ namespace gtspace.Common
     public static class Settings
     {
         #region 私有变量
-        /// <summary>
-        /// 是否启用调试模式，
-        /// true使用调试模式,
-        /// false不使用调试模式
-        /// </summary>
-        static bool _isDebugMade = false;
-
-        /// <summary>
-        /// 生成静态页面的超时时间, 单位:毫秒
-        /// </summary>
-        static int _htmlTimeOut = 30000;
 
         /// <summary>
         /// 网站的根域名, 如 : http://www.baidu.com/
@@ -44,43 +34,10 @@ namespace gtspace.Common
         /// </summary>
         static string _errorPage = "~/Error.html";
 
-        /// <summary>
-        /// 采用何种页面生成机制
-        /// </summary>
-        static PageBuildMode _pageBuildMode = PageBuildMode.Html;
-
         #endregion
 
-        #region 方法
-        /// <summary>
-        /// 是否启用调试模式, 调试模式下每个层是不依赖的
-        /// </summary>
-        public static bool IsDebugMade
-        {
-            get
-            {
-                return _isDebugMade;
-            }
-            set
-            {
-                _isDebugMade = value;
-            }
-        }
-        /// <summary>
-        ///  生成静态页面的超时时间, 单位:毫秒
-        /// </summary>
-         public static int HtmlTimeOut
-         {
-             get
-             {
-                 return _htmlTimeOut;
-             }
-             set
-             {
-                 _htmlTimeOut = value;
-             }
-         }
 
+        #region 属性
         /// <summary>
          /// 网站的根域名, 如 : http://www.baidu.com/
         /// </summary>
@@ -119,26 +76,11 @@ namespace gtspace.Common
              get
              {
                  //根据是否为调试模式调用连接字符串；
-                 return IsDebugMade ? "value1" : "value2";
+                 return string.Empty;
              }
              set
              {
                  _connectionString = value;
-             }
-         }
-
-        /// <summary>
-        /// 采用何种页面生成机制
-        /// </summary>
-         public static PageBuildMode PageBuildMode
-         {
-             get
-             {
-                 return _pageBuildMode;
-             }
-             set
-             {
-                 _pageBuildMode = value;
              }
          }
 
