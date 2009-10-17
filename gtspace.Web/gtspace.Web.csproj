@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -68,7 +69,7 @@
     <Content Include="Log\错误日志.txt" />
     <Content Include="robots.txt" />
     <Content Include="Templates\Default\Blocks\页面块.txt" />
-    <Content Include="Templates\Default\Config.xml" />
+    <None Include="Templates\Default\template.config" />
     <Content Include="Templates\Default\Images\Html里直接调用的图片.txt" />
     <Content Include="Templates\Default\index.aspx" />
     <Content Include="Templates\Default\Scripts\Javascript文件.txt" />
@@ -77,6 +78,7 @@
     <Content Include="Templates\Default\默认模板.txt" />
     <Content Include="Templates\前台模板.txt" />
     <Content Include="TestCase\zwc_test1.aspx" />
+    <Content Include="TestCase\zwc_test2.aspx" />
     <Content Include="TestCase\测试页面.txt" />
     <Content Include="Upload\上传的文件.txt" />
     <Content Include="Web.config" />
@@ -122,6 +124,13 @@
     <Compile Include="TestCase\zwc_test1.aspx.designer.cs">
       <DependentUpon>zwc_test1.aspx</DependentUpon>
     </Compile>
+    <Compile Include="TestCase\zwc_test2.aspx.cs">
+      <DependentUpon>zwc_test2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestCase\zwc_test2.aspx.designer.cs">
+      <DependentUpon>zwc_test2.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\gtspace.Common\gtspace.Common.csproj">
@@ -138,7 +147,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Admin\AddOns\" />
+    <Folder Include="Admin\AddOns\123456\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
