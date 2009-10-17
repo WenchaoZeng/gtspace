@@ -31,8 +31,6 @@ namespace gtspace.Common
 			info.CopyRight = "Copyright 2009 gtspace Development Team";
 			info.Description = "这是gtspace默认的插件";
 			info.DLLFile = "gtspace.AddOn.Default.dll";
-			info.AspxFiles = new List<string>();
-			info.AspxFiles.Add("index.aspx");
 
 			return info;
 		}

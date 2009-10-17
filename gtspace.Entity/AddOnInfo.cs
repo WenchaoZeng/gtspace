@@ -14,41 +14,36 @@ namespace gtspace.Entity
 		/// <summary>
 		/// 插件所在的目录名
 		/// </summary>
-		public string Directory = string.Empty;
+		public string Directory { get; set; }
 
 		/// <summary>
 		/// 插件的名字
 		/// </summary>
-		public string Name = string.Empty;
+		public string Name { get; set; }
 
 		/// <summary>
 		/// 版本号
 		/// </summary>
-		public string Version = string.Empty;
+		public string Version { get; set; }
 
 		/// <summary>
 		/// 作者
 		/// </summary>
-		public string Author = string.Empty;
+		public string Author { get; set; }
 
 		/// <summary>
 		/// 版权信息
 		/// </summary>
-		public string CopyRight = string.Empty;
+		public string CopyRight { get; set; }
 
 		/// <summary>
 		/// 描述
 		/// </summary>
-		public string Description = string.Empty;
+		public string Description { get; set; }
 
 		/// <summary>
 		/// DLL文件名称
 		/// </summary>
-		public string DLLFile = string.Empty;
-
-		/// <summary>
-		/// 动态页面名称列表
-		/// </summary>
-		public List<string> AspxFiles = null;
+		public string DLLFile { get; set; }
 	}
 }

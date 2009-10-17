@@ -14,41 +14,41 @@ namespace gtspace.Entity
 		/// <summary>
 		/// 模板所在的目录名
 		/// </summary>
-		public string Directory = string.Empty;
+		public string Directory { get; set; }
 
 		/// <summary>
 		/// 模板的名字
 		/// </summary>
-		public string Name = string.Empty;
+		public string Name { get; set; }
 
 		/// <summary>
 		/// 版本号
 		/// </summary>
-		public string Version = string.Empty;
+		public string Version { get; set; }
 
 		/// <summary>
 		/// 作者
 		/// </summary>
-		public string Author = string.Empty;
+		public string Author { get; set; }
 
 		/// <summary>
 		/// 版权信息
 		/// </summary>
-		public string CopyRight = string.Empty;
+		public string CopyRight { get; set; }
 
 		/// <summary>
 		/// 略缩图
 		/// </summary>
-		public string ScreenShot = string.Empty;
+		public string ScreenShot { get; set; }
 
 		/// <summary>
 		/// 描述
 		/// </summary>
-		public string Description = string.Empty;
+		public string Description { get; set; }
 
 		/// <summary>
 		/// Url地址重写列表
 		/// </summary>
-		public List<RewriteRule> RewriteRules = null;
+		public List<RewriteRule> RewriteRules { get; set; }
 	}
 }
