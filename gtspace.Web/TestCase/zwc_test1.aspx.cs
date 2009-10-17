@@ -28,11 +28,11 @@ namespace gtspace.Web.TestCase
 			
 			try
 			{
-				Directory.CreateDirectory(Settings.RootPath + @"bin\addon");
-				File.Copy(@"D:\Temp\AddOn\WebApplication1.dll", Settings.RootPath + @"bin\addon\WebApplication1.dll");
-				File.Copy(@"D:\Temp\AddOn\WebApplication1.pdb", Settings.RootPath + @"bin\addon\WebApplication1.pdb");
-				File.Copy(@"D:\Temp\AddOn\WebApplication2.dll", Settings.RootPath + @"bin\addon\WebApplication2.dll");
-				File.Copy(@"D:\Temp\AddOn\WebApplication2.pdb", Settings.RootPath + @"bin\addon\WebApplication2.pdb");
+				Directory.CreateDirectory(Settings.RootPath + @"bin\addons");
+				File.Copy(@"D:\Temp\AddOn\WebApplication1.dll", Settings.RootPath + @"bin\addons\WebApplication1.dll");
+				File.Copy(@"D:\Temp\AddOn\WebApplication1.pdb", Settings.RootPath + @"bin\addons\WebApplication1.pdb");
+				File.Copy(@"D:\Temp\AddOn\WebApplication2.dll", Settings.RootPath + @"bin\addons\WebApplication2.dll");
+				File.Copy(@"D:\Temp\AddOn\WebApplication2.pdb", Settings.RootPath + @"bin\addons\WebApplication2.pdb");
 
 				File.Copy(@"D:\Temp\AddOn\Default.aspx", Settings.RootPath + @"TestCase\Default.aspx");
 			}
@@ -50,7 +50,7 @@ namespace gtspace.Web.TestCase
 
 			try
 			{
-				Directory.Delete(Settings.RootPath + @"bin\addon", true);
+				Directory.Delete(Settings.RootPath + @"bin\addons", true);
 				File.Delete(Settings.RootPath + @"TestCase\Default.aspx");
 			}
 			catch (Exception ex)
