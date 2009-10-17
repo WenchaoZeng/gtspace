@@ -1,4 +1,5 @@
 ﻿/// Created by zwc at 2009年10月16日
+/// Modified by zwc at 2009年10月17日, 实现了Load方法
 using System;
 using System.Collections.Generic;
 using System.Linq;
