@@ -32,22 +32,20 @@ namespace gtspace.Common
 			// 目录名称
 			info.Directory = Path.GetFileName(Path.GetDirectoryName(path));
 
-			XmlDocument doc = new XmlDocument();
-			doc.Load(path);
-			XmlElement root = doc.DocumentElement;
+			XmlElement root = Utilitys.Xml.Load(path);
 
-			if (root.Name != "template")
+			if (root == null || root.Name != "template")
 			{
 				throw new LogicException("不是一个有效的模板配置文件");
 			}
 
 			// 读取基本信息
-			info.Name = readChild(root, "name");
-			info.Version = readChild(root, "version");
-			info.Author = readChild(root, "author");
-			info.CopyRight = readChild(root, "copyright");
-			info.ScreenShot = readChild(root, "screenshot");
-			info.Description = readChild(root, "description");
+			info.Name = Utilitys.Xml.ReadChild(root, "name");
+			info.Version = Utilitys.Xml.ReadChild(root, "version");
+			info.Author = Utilitys.Xml.ReadChild(root, "author");
+			info.CopyRight = Utilitys.Xml.ReadChild(root, "copyright");
+			info.ScreenShot = Utilitys.Xml.ReadChild(root, "screenshot");
+			info.Description = Utilitys.Xml.ReadChild(root, "description");
 
 			// 读取Url重写规则
 			info.RewriteRules = new List<RewriteRule>();
@@ -64,8 +62,8 @@ namespace gtspace.Common
 			foreach (XmlNode rule in rules)
 			{
 				RewriteRule rewriterule = new RewriteRule();
-				rewriterule.From = readAttribute(rule, "from");
-				rewriterule.To = readAttribute(rule, "to");
+				rewriterule.From = Utilitys.Xml.ReadAttribute(rule, "from");
+				rewriterule.To = Utilitys.Xml.ReadAttribute(rule, "to");
 				info.RewriteRules.Add(rewriterule);
 			}
 
@@ -79,33 +77,6 @@ namespace gtspace.Common
 		public List<TemplateInfo> LoadAll()
 		{
 			throw new NotImplementedException("没有写这个函数");
-		}
-
-		/// <summary>
-		/// 读取一个节点的子节点的内容
-		/// </summary>
-		/// <param name="node">当前节点</param>
-		/// <param name="childName">子节点名称</param>
-		/// <returns>节点内容</returns>
-		string readChild(XmlElement node, string childName)
-		{
-			XmlNodeList childs = node.GetElementsByTagName(childName);
-			if (childs.Count > 0)
-			{
-				return childs[0].InnerText;
-			}
-			return string.Empty;
-		}
-
-		/// <summary>
-		/// 读取节点的属性
-		/// </summary>
-		/// <param name="node">当前节点</param>
-		/// <param name="name">属性名</param>
-		/// <returns>属性值</returns>
-		string readAttribute(XmlNode node, string name)
-		{
-			return node.Attributes[name] != null ? node.Attributes[name].Value : string.Empty;
 		}
 	}
 }

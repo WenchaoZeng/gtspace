@@ -34,5 +34,10 @@ namespace gtspace.Common
 		/// 模板帮助器
 		/// </summary>
 		public static TemplateHelper Template = new TemplateHelper();
+
+		/// <summary>
+		/// Xml帮助器
+		/// </summary>
+		public static XmlHelper Xml = new XmlHelper();
     }
 }
