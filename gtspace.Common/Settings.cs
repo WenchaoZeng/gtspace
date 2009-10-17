@@ -123,6 +123,25 @@ namespace gtspace.Common
 			}
 		}
 
+		/// <summary>
+		/// 设置或获取主导航栏
+		/// </summary>
+		public static Navigation RootNavigation
+		{
+			set
+			{
+				_rootNavigation = value;
+			}
+			get
+			{
+				if (_rootNavigation == null)
+				{
+					LoadRootNavigation();
+				}
+				return _rootNavigation;
+			}
+		}
+
 		#endregion 公有属性
 
 		#region 方法
@@ -151,6 +170,14 @@ namespace gtspace.Common
 			AppSettingsSection appSettings = config.AppSettings;
 			appSettings.Settings[key].Value = value;
 			config.Save();
+		}
+
+		/// <summary>
+		/// 加载主导航栏
+		/// </summary>
+		public static void LoadRootNavigation()
+		{
+			throw new NotImplementedException("没有实现");
 		}
 
 		#endregion 公有方法
@@ -211,6 +238,11 @@ namespace gtspace.Common
 		/// 当前正在使用的模板名称, 如 : Default
 		/// </summary>
 		static string _currentTemplate = "Default";
+
+		/// <summary>
+		/// 主导航栏
+		/// </summary>
+		static Navigation _rootNavigation = null;
 
 		#endregion 私有变量
 	}

@@ -31,6 +31,9 @@ namespace gtspace.Common
 			info.CopyRight = "Copyright 2009 gtspace Development Team";
 			info.Description = "这是gtspace默认的插件";
 			info.DLLFile = "gtspace.AddOn.Default.dll";
+			// 需要添加导航栏信息
+
+			throw new NotImplementedException("需要添加导航栏信息");
 
 			return info;
 		}

@@ -39,5 +39,10 @@ namespace gtspace.Common
 		/// Xml帮助器
 		/// </summary>
 		public static XmlHelper Xml = new XmlHelper();
+
+		/// <summary>
+		/// 插件帮助器
+		/// </summary>
+		public static AddOnHelper AddOn = new AddOnHelper();
     }
 }

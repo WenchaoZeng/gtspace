@@ -45,5 +45,10 @@ namespace gtspace.Entity
 		/// DLL文件名称
 		/// </summary>
 		public string DLLFile { get; set; }
+
+		/// <summary>
+		/// 导航栏
+		/// </summary>
+		public Navigation Navigation { get; set; }
 	}
 }
