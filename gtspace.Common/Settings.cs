@@ -132,7 +132,7 @@ namespace gtspace.Common
 		/// </summary>
 		public static void LoadRewriteRules()
 		{
-			TemplateInfo info = Utilitys.Template.LoadConfig(RootPath + "Templates\\" + CurrentTemplate + "\\Config.xml");
+			TemplateInfo info = Utilitys.Template.Load(RootPath + "Templates\\" + CurrentTemplate + "\\Config.xml");
 			if (info.RewriteRules != null)
 			{
 				_rewriteRules = info.RewriteRules;
