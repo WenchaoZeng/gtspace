@@ -4,12 +4,12 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{2818F2AB-0120-431D-AC32-E86548AF47FB}</ProjectGuid>
+    <ProjectGuid>{58EC82D6-A10B-450E-BFCA-1B22E0A192EF}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>gtspace.Web</RootNamespace>
-    <AssemblyName>gtspace.Web</AssemblyName>
+    <RootNamespace>gtspace.AddOn.Default</RootNamespace>
+    <AssemblyName>gtspace.AddOn.Default</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -31,7 +31,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -48,89 +47,29 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Admin\Admin.aspx" />
-    <Content Include="Admin\Default.aspx" />
-    <Content Include="Admin\后台管理.txt" />
-    <Content Include="Error\404_error.html" />
-    <Content Include="Error\app_error.html" />
-    <Content Include="Codes\一些基于UI的类.txt" />
-    <Content Include="Database\Access2003数据库.txt" />
-    <Content Include="Database\gtspace.mdb">
-    </Content>
-    <Content Include="Default.aspx" />
-    <Content Include="DLL\重用的类库.txt" />
-    <Content Include="Global.asax" />
-    <Content Include="Install\是否可以免安装.txt" />
-    <Content Include="Log\错误日志.txt" />
-    <Content Include="robots.txt" />
-    <Content Include="Templates\Default\Blocks\页面块.txt" />
-    <None Include="Templates\Default\template.config" />
-    <Content Include="Templates\Default\Images\Html里直接调用的图片.txt" />
-    <Content Include="Templates\Default\index.aspx" />
-    <Content Include="Templates\Default\Scripts\Javascript文件.txt" />
-    <Content Include="Templates\Default\Styles\Images\样式表调用的图片.txt" />
-    <Content Include="Templates\Default\Styles\样式.txt" />
-    <Content Include="Templates\Default\默认模板.txt" />
-    <Content Include="Templates\前台模板.txt" />
-    <Content Include="TestCase\zwc_test1.aspx" />
-    <Content Include="TestCase\zwc_test2.aspx" />
-    <Content Include="TestCase\测试页面.txt" />
-    <Content Include="Upload\上传的文件.txt" />
     <Content Include="Web.config" />
-    <Content Include="用户接口层.txt" />
+    <Content Include="默认的插件.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Admin\Admin.aspx.cs">
-      <DependentUpon>Admin.aspx</DependentUpon>
+    <Compile Include="index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin\Admin.aspx.designer.cs">
-      <DependentUpon>Admin.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Default.aspx.cs">
-      <SubType>ASPXCodeBehind</SubType>
-      <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
+    <Compile Include="index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Templates\Default\index.aspx.cs">
-      <DependentUpon>index.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Templates\Default\index.aspx.designer.cs">
-      <DependentUpon>index.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="TestCase\zwc_test1.aspx.cs">
-      <DependentUpon>zwc_test1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="TestCase\zwc_test1.aspx.designer.cs">
-      <DependentUpon>zwc_test1.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="TestCase\zwc_test2.aspx.cs">
-      <DependentUpon>zwc_test2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="TestCase\zwc_test2.aspx.designer.cs">
-      <DependentUpon>zwc_test2.aspx</DependentUpon>
-    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="addon.config" />
+    <Content Include="Global.asax" />
+    <Content Include="index.aspx" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\gtspace.Common\gtspace.Common.csproj">
@@ -145,9 +84,16 @@
       <Project>{A6D15EC6-BF3A-4457-8F73-9DE5E3F942D0}</Project>
       <Name>gtspace.Entity</Name>
     </ProjectReference>
+    <ProjectReference Include="..\gtspace.ServerControls\gtspace.ServerControls.csproj">
+      <Project>{6A472214-1425-436D-94D0-D21F0FB5699E}</Project>
+      <Name>gtspace.ServerControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\gtspace.Web\gtspace.Web.csproj">
+      <Project>{2818F2AB-0120-431D-AC32-E86548AF47FB}</Project>
+      <Name>gtspace.Web</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Admin\AddOns\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
@@ -165,7 +111,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>3477</DevelopmentServerPort>
+          <DevelopmentServerPort>1334</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

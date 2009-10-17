@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddOnInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RewriteRule.cs" />
     <Compile Include="TemplateInfo.cs" />
