@@ -63,7 +63,7 @@ namespace gtspace.Common
 			{
 				RewriteRule rewriterule = new RewriteRule();
 				rewriterule.From = Utilitys.Xml.ReadAttribute(rule, "from");
-				rewriterule.To = Utilitys.Xml.ReadAttribute(rule, "to");
+				rewriterule.To = "~/Templates/" + info.Directory + "/" + Utilitys.Xml.ReadAttribute(rule, "to");
 				info.RewriteRules.Add(rewriterule);
 			}
 
