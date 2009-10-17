@@ -23,7 +23,7 @@ namespace gtspace.Common
         /// <returns>JavaScript代码</returns>
         public string Alert(string message)
         {
-			return Code("alert(\"" + message + "\");");
+			return Code("alert(\"" + TransChars(message) + "\");");
         }
 
         /// <summary>
@@ -33,7 +33,7 @@ namespace gtspace.Common
         /// <returns></returns>
         public string Redirect(string url)
         {
-			return Code("window.location=\"" + url + "\"");
+			return Code("window.location=\"" + TransChars(url) + "\"");
         }
 
         /// <summary>
@@ -45,5 +45,17 @@ namespace gtspace.Common
         {
             return "<script language=\"javascript\">" + code +"</script>";
         }
+
+		/// <summary>
+		/// 对字符串进行显示反义字符装换 如 : 将 C:\a.txt 转为 C:\\a.txt
+		/// </summary>
+		/// <param name="value">原始字符串</param>
+		/// <returns>转义之后的字符串</returns>
+		public string TransChars(string value)
+		{
+			value = value.Replace("\\", "\\\\");
+
+			return value;
+		}
     }
 }

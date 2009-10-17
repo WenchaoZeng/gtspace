@@ -37,6 +37,14 @@ namespace gtspace.Common
 			return info;
 		}
 
+		/// <summary>
+		/// 读取所有插件信息
+		/// </summary>
+		/// <returns>插件列表</returns>
+		public List<AddOnInfo> LoadAll()
+		{
+			throw new NotImplementedException("没有写这个函数");
+		}
 
 	}
 }
