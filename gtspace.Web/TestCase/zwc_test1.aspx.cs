@@ -25,16 +25,13 @@ namespace gtspace.Web.TestCase
 		protected void Button1_Click(object sender, EventArgs e)
 		{
 			// 加载插件
-			
 			try
 			{
 				Directory.CreateDirectory(Settings.RootPath + @"bin\addons");
-				File.Copy(@"D:\Temp\AddOn\WebApplication1.dll", Settings.RootPath + @"bin\addons\WebApplication1.dll");
-				File.Copy(@"D:\Temp\AddOn\WebApplication1.pdb", Settings.RootPath + @"bin\addons\WebApplication1.pdb");
-				File.Copy(@"D:\Temp\AddOn\WebApplication2.dll", Settings.RootPath + @"bin\addons\WebApplication2.dll");
-				File.Copy(@"D:\Temp\AddOn\WebApplication2.pdb", Settings.RootPath + @"bin\addons\WebApplication2.pdb");
-
-				File.Copy(@"D:\Temp\AddOn\Default.aspx", Settings.RootPath + @"TestCase\Default.aspx");
+				Directory.CreateDirectory(Settings.RootPath + @"Admin\AddOns\Default");
+				File.Copy(@"D:\Temp\AddOn\gtspace.AddOn.Default.dll", Settings.RootPath + @"bin\addons\gtspace.AddOn.Default.dll", true);
+				File.Copy(@"D:\Temp\AddOn\index.aspx", Settings.RootPath + @"Admin\AddOns\Default\index.aspx", true);
+				HyperLink1.NavigateUrl = "~/Admin/AddOns/Default/index.aspx";
 			}
 			catch (Exception ex)
 			{
@@ -51,7 +48,7 @@ namespace gtspace.Web.TestCase
 			try
 			{
 				Directory.Delete(Settings.RootPath + @"bin\addons", true);
-				File.Delete(Settings.RootPath + @"TestCase\Default.aspx");
+				Directory.Delete(Settings.RootPath + @"Admin\AddOns\Default", true);
 			}
 			catch (Exception ex)
 			{
