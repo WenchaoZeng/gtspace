@@ -47,8 +47,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contract\IAddOn.cs" />
-    <Compile Include="Entity\AddOnInfo.cs" />
+    <Compile Include="Contract\IPlugin.cs" />
+    <Compile Include="Entity\PluginInfo.cs" />
     <Compile Include="Entity\LogicException.cs" />
     <Compile Include="Entity\Navigation.cs" />
     <Compile Include="Entity\RewriteRule.cs" />

@@ -10,6 +10,8 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
+using gtspace.Common.Contract;
+using gtspace.Common;
 
 namespace gtspace.Web.Codes
 {
@@ -25,6 +27,11 @@ namespace gtspace.Web.Codes
 		protected override void OnPreLoad(EventArgs e)
 		{ 
 			
+			// 调用插件
+			foreach (IPlugin plugin in Settings.Plugins)
+			{
+				plugin.AdminPage_OnPreLoad(e);
+			}
 		}
 	}
 }

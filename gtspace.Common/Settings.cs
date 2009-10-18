@@ -146,19 +146,19 @@ namespace gtspace.Common
 		/// <summary>
 		/// 设置或获取插件接口列表
 		/// </summary>
-		public static List<IAddOn> AddOns
+		public static List<IPlugin> Plugins
 		{
 			set 
 			{
-				_addOns = value;
+				_plugins = value;
 			}
 			get
 			{
-				if (_addOns == null)
+				if (_plugins == null)
 				{
-					LoadAddons();
+					LoadPlugins();
 				}
-				return _addOns;
+				return _plugins;
 			}
 		}
 
@@ -203,27 +203,27 @@ namespace gtspace.Common
 			_rootNavigation.Childs = new List<Navigation>();
 
 			// 读取插件列表里的每一个导航栏
-			List<AddOnInfo> addons = AddOnInfo.LoadAll(Settings.RootPath + @"Admin\AddOns");
-			foreach (AddOnInfo addon in addons)
+			List<PluginInfo> plugins = PluginInfo.LoadAll(Settings.RootPath + @"Admin\Plugins");
+			foreach (PluginInfo plugin in plugins)
 			{
-				_rootNavigation.Childs.Add(addon.Navigation);
+				_rootNavigation.Childs.Add(plugin.Navigation);
 			}
 		}
 
 		/// <summary>
 		/// 加载所有插件的插件接口列表
 		/// </summary>
-		public static void LoadAddons()
+		public static void LoadPlugins()
 		{
-			_addOns = new List<IAddOn>();
+			_plugins = new List<IPlugin>();
 
-			List<AddOnInfo> infos = AddOnInfo.LoadAll(Settings.RootPath + "Admin\\AddOns");
-			foreach (AddOnInfo info in infos)
+			List<PluginInfo> infos = PluginInfo.LoadAll(Settings.RootPath + "Admin\\Plugins");
+			foreach (PluginInfo info in infos)
 			{
-				IAddOn addon = AddOnInfo.LoadAddOn(Settings.RootPath + "bin\\" + info.DLLFile);
-				if (addon != null)
+				IPlugin plugin = PluginInfo.LoadPlugin(Settings.RootPath + "bin\\" + info.DLLFile);
+				if (plugin != null)
 				{
-					_addOns.Add(addon);
+					_plugins.Add(plugin);
 				}
 			}
 		}
@@ -295,7 +295,7 @@ namespace gtspace.Common
 		/// <summary>
 		/// 插件接口的公共方法
 		/// </summary>
-		static List<IAddOn> _addOns = null;
+		static List<IPlugin> _plugins = null;
 
 		#endregion 私有变量
 	}

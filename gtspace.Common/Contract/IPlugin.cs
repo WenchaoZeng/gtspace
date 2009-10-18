@@ -9,7 +9,7 @@ namespace gtspace.Common.Contract
 	/// <summary>
 	/// 插件通用的接口
 	/// </summary>
-	public interface IAddOn
+	public interface IPlugin
 	{
 		#region Global 全局类的函数
 

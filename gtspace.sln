@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gtspace.Common", "gtspace.C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gtspace.ServerControls", "gtspace.ServerControls\gtspace.ServerControls.csproj", "{6A472214-1425-436D-94D0-D21F0FB5699E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gtspace.AddOn.Default", "gtspace.AddOn.Default\gtspace.AddOn.Default.csproj", "{58EC82D6-A10B-450E-BFCA-1B22E0A192EF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gtspace.Plugin.Default", "gtspace.Plugin.Default\gtspace.Plugin.Default.csproj", "{58EC82D6-A10B-450E-BFCA-1B22E0A192EF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -13,7 +13,7 @@ namespace gtspace.Common.Entity
 	/// <summary>
 	/// 插件信息
 	/// </summary>
-	public class AddOnInfo
+	public class PluginInfo
 	{
 		#region 公有属性
 
@@ -67,7 +67,7 @@ namespace gtspace.Common.Entity
 		/// <param name="path">插件文件夹的物理绝对路径 (后面不加 / 或 \ )</param>
 		/// <returns>插件配置信息</returns>
 		/// <exception cref="LogicException"/>
-		public static AddOnInfo Load(string path)
+		public static PluginInfo Load(string path)
 		{
 			// 构造配置文件路径
 			path += "\\" + _configfile;
@@ -76,13 +76,13 @@ namespace gtspace.Common.Entity
 				throw new LogicException("插件配置文件不存在");
 			}
 
-			AddOnInfo info = new AddOnInfo();
+			PluginInfo info = new PluginInfo();
 
 			// 目录名称
 			info.Directory = Path.GetFileName(Path.GetDirectoryName(path));
 
 			XmlElement root = Utilitys.Xml.Load(path);
-			if (root == null || root.Name != "addon")
+			if (root == null || root.Name != "plugin")
 			{
 				throw new LogicException("不是一个有效的插件配置文件");
 			}
@@ -104,7 +104,7 @@ namespace gtspace.Common.Entity
 				throw new LogicException("插件必须要有导航栏");
 			}
 			info.Navigation.Name = Utilitys.Xml.ReadAttribute(navigation[0], "name");
-			info.Navigation.Target = Settings.RootUrl + "Admin/AddOns/" + info.Directory + "/" + Utilitys.Xml.ReadAttribute(navigation[0], "target");
+			info.Navigation.Target = Settings.RootUrl + "Admin/Plugins/" + info.Directory + "/" + Utilitys.Xml.ReadAttribute(navigation[0], "target");
 
 			// 组
 			XmlNodeList groups = navigation[0].SelectNodes("group");
@@ -120,7 +120,7 @@ namespace gtspace.Common.Entity
 				{
 					Navigation pageNav = new Navigation();
 					pageNav.Name = Utilitys.Xml.ReadAttribute(page, "name");
-					pageNav.Target = Settings.RootUrl + "Admin/AddOns/" + info.Directory + "/" + Utilitys.Xml.ReadAttribute(page, "target");
+					pageNav.Target = Settings.RootUrl + "Admin/Plugins/" + info.Directory + "/" + Utilitys.Xml.ReadAttribute(page, "target");
 
 					groupNav.Childs.Add(pageNav);
 				}
@@ -136,9 +136,9 @@ namespace gtspace.Common.Entity
 		/// </summary>
 		/// <param name="path">放置许多插件的文件夹路径</param>
 		/// <returns>插件列表</returns>
-		public static List<AddOnInfo> LoadAll(string path)
+		public static List<PluginInfo> LoadAll(string path)
 		{
-			List<AddOnInfo> addons = new List<AddOnInfo>();
+			List<PluginInfo> plugins = new List<PluginInfo>();
 
 			// 列出子文件夹
 			string[] subPaths = System.IO.Directory.GetDirectories(path);
@@ -148,7 +148,7 @@ namespace gtspace.Common.Entity
 			{
 				try
 				{
-					addons.Add(Load(subPath));
+					plugins.Add(Load(subPath));
 				}
 				catch (LogicException ex)
 				{
@@ -157,21 +157,21 @@ namespace gtspace.Common.Entity
 				}
 			}
 
-			return addons;
+			return plugins;
 		}
 
 		/// <summary>
 		/// 加载插件接口实体
 		/// </summary>
 		/// <returns></returns>
-		public static IAddOn LoadAddOn(string dllPath)
+		public static IPlugin LoadPlugin(string dllPath)
 		{
 			Assembly asm = Assembly.LoadFile(dllPath);
 			Type[] types = asm.GetTypes();
 
-			Type type = types.First(p => p.GetInterface("gtspace.Common.Contract.IAddOn") != null);
+			Type type = types.First(p => p.GetInterface("gtspace.Common.Contract.IPlugin") != null);
 
-			return type == null ? null : (IAddOn)asm.CreateInstance(type.FullName);
+			return type == null ? null : (IPlugin)asm.CreateInstance(type.FullName);
 		}
 
 		#endregion 公有方法
@@ -181,7 +181,7 @@ namespace gtspace.Common.Entity
 		/// <summary>
 		/// 配置文件的文件名
 		/// </summary>
-		static string _configfile = "addon.config";
+		static string _configfile = "plugin.config";
 
 		#endregion
 	}

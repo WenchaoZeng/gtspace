@@ -23,9 +23,9 @@ namespace gtspace.Web.TestCase
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			foreach (IAddOn addon in Settings.AddOns)
+			foreach (IPlugin plugins in Settings.Plugins)
 			{
-				addon.Application_BeginRequest(sender, e);
+				plugins.Application_BeginRequest(sender, e);
 			}
 		}
 

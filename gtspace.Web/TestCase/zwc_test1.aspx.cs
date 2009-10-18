@@ -28,10 +28,10 @@ namespace gtspace.Web.TestCase
 			try
 			{
 				Directory.CreateDirectory(Settings.RootPath + @"bin");
-				Directory.CreateDirectory(Settings.RootPath + @"Admin\AddOns\Default");
-				File.Copy(@"D:\Temp\AddOn\gtspace.AddOn.Default.dll", Settings.RootPath + @"bin\gtspace.AddOn.Default.dll", true);
-				File.Copy(@"D:\Temp\AddOn\index.aspx", Settings.RootPath + @"Admin\AddOns\Default\index.aspx", true);
-				HyperLink1.NavigateUrl = "~/Admin/AddOns/Default/index.aspx";
+				Directory.CreateDirectory(Settings.RootPath + @"Admin\Plugins\Default");
+				File.Copy(@"D:\Temp\Plugin\gtspace.Plugin.Default.dll", Settings.RootPath + @"bin\gtspace.Plugin.Default.dll", true);
+				File.Copy(@"D:\Temp\Plugin\index.aspx", Settings.RootPath + @"Admin\Plugins\Default\index.aspx", true);
+				HyperLink1.NavigateUrl = "~/Admin/Plugins/Default/index.aspx";
 			}
 			catch (Exception ex)
 			{
@@ -47,8 +47,8 @@ namespace gtspace.Web.TestCase
 
 			try
 			{
-				Directory.Delete(Settings.RootPath + @"bin\gtspace.AddOn.Default.dll", true);
-				Directory.Delete(Settings.RootPath + @"Admin\AddOns\Default", true);
+				Directory.Delete(Settings.RootPath + @"bin\gtspace.Plugin.Default.dll", true);
+				Directory.Delete(Settings.RootPath + @"Admin\Plugins\Default", true);
 			}
 			catch (Exception ex)
 			{
