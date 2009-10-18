@@ -177,7 +177,20 @@ namespace gtspace.Common
 		/// </summary>
 		public static void LoadRootNavigation()
 		{
-			throw new NotImplementedException("没有实现");
+			_rootNavigation = new Navigation();
+			_rootNavigation.Childs = new List<Navigation>();
+
+			Navigation nav1 = new Navigation();
+			nav1.Name = "百度";
+			nav1.Target = "http://www.baidu.com/";
+			_rootNavigation.Childs.Add(nav1);
+
+			Navigation nav2 = new Navigation();
+			nav2.Name = "谷歌";
+			nav2.Target = "http://www.google.com/";
+			_rootNavigation.Childs.Add(nav2);
+
+
 		}
 
 		#endregion 公有方法

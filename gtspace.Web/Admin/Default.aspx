@@ -4,12 +4,11 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head runat="server">
-    <title>后台登录页面</title>
+    <title>后台默认页面</title>
 </head>
 <body>
     <form id="form1" runat="server">
     <div>
-    <h1>后台登录页面</h1>
     </div>
     </form>
 </body>
