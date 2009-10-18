@@ -8,6 +8,7 @@ using System.Configuration;
 using System.Web.Configuration;
 using gtspace.Common.Entity;
 using gtspace.Common.Contract;
+using System.IO;
 
 namespace gtspace.Common
 {
@@ -217,10 +218,16 @@ namespace gtspace.Common
 		{
 			_plugins = new List<IPlugin>();
 
+			// 读取配置信息
 			List<PluginInfo> infos = PluginInfo.LoadAll(Settings.RootPath + "Admin\\Plugins");
+
 			foreach (PluginInfo info in infos)
 			{
-				IPlugin plugin = PluginInfo.LoadPlugin(Settings.RootPath + "bin\\" + info.DLLFile);
+				// 将dll拷贝到缓冲区, 如果直接在bin里加载的话, 则不能删除了, 所以要拷贝到别的地方加载
+				File.Copy(Settings.RootPath + "bin\\" + info.DLLFile, Settings.RootPath + "Cache\\" + info.DLLFile, true);
+
+				// 记载缓冲区里的dll
+				IPlugin plugin = PluginInfo.LoadPlugin(Settings.RootPath + "Cache\\" + info.DLLFile);
 				if (plugin != null)
 				{
 					_plugins.Add(plugin);
