@@ -68,7 +68,7 @@ namespace gtspace.Common.Entity
 		{
 			if (!File.Exists(path))
 			{
-				throw new LogicException("配置文件不存在");
+				throw new LogicException("模板配置文件不存在");
 			}
 
 			TemplateInfo info = new TemplateInfo();
@@ -77,7 +77,6 @@ namespace gtspace.Common.Entity
 			info.Directory = Path.GetFileName(Path.GetDirectoryName(path));
 
 			XmlElement root = Utilitys.Xml.Load(path);
-
 			if (root == null || root.Name != "template")
 			{
 				throw new LogicException("不是一个有效的模板配置文件");

@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml;
+using System.IO;
 
 namespace gtspace.Common.Entity
 {
@@ -64,21 +66,63 @@ namespace gtspace.Common.Entity
 		/// <returns>插件配置信息</returns>
 		public static AddOnInfo Load(string path)
 		{
-			//
-			// TODO : 读取的代码留给后面搞
-			//
+			if (!File.Exists(path))
+			{
+				throw new LogicException("插件配置文件不存在");
+			}
 
 			AddOnInfo info = new AddOnInfo();
-			info.Directory = "Default";
-			info.Name = "默认的插件";
-			info.Version = "0.1";
-			info.Author = "GTeam";
-			info.CopyRight = "Copyright 2009 gtspace Development Team";
-			info.Description = "这是gtspace默认的插件";
-			info.DLLFile = "gtspace.AddOn.Default.dll";
-			// 需要添加导航栏信息
 
-			throw new NotImplementedException("需要添加导航栏信息");
+			// 目录名称
+			info.Directory = Path.GetFileName(Path.GetDirectoryName(path));
+
+			XmlElement root = Utilitys.Xml.Load(path);
+			if (root == null || root.Name != "addon")
+			{
+				throw new LogicException("不是一个有效的插件配置文件");
+			}
+
+			// 读取基本信息
+			info.Name = Utilitys.Xml.ReadChild(root, "name");
+			info.Version = Utilitys.Xml.ReadChild(root, "version");
+			info.Author = Utilitys.Xml.ReadChild(root, "author");
+			info.CopyRight = Utilitys.Xml.ReadChild(root, "copyright");
+			info.Description = Utilitys.Xml.ReadChild(root, "description");
+			info.DLLFile = Utilitys.Xml.ReadChild(root, "dllfile");
+
+			// 读取导航栏
+			info.Navigation = new Navigation();
+			info.Navigation.Childs = new List<Navigation>();
+			XmlNodeList navigation = root.GetElementsByTagName("navigation");
+			if (navigation.Count <= 0)
+			{
+				throw new LogicException("插件必须要有导航栏");
+			}
+			info.Navigation.Name = Utilitys.Xml.ReadAttribute(navigation[0], "name");
+			info.Navigation.Target = Utilitys.Xml.ReadAttribute(navigation[0], "target");
+
+			// 组
+			XmlNodeList groups = navigation[0].SelectNodes("group");
+			foreach (XmlNode group in groups)
+			{
+				Navigation groupNav = new Navigation();
+				groupNav.Childs = new List<Navigation>();
+				groupNav.Name = Utilitys.Xml.ReadAttribute(group, "name");
+				groupNav.Target = Utilitys.Xml.ReadAttribute(group, "target");
+
+				// 页面链接
+				XmlNodeList pages = group.SelectNodes("page");
+				foreach (XmlNode page in pages)
+				{
+					Navigation pageNav = new Navigation();
+					pageNav.Name = Utilitys.Xml.ReadAttribute(page, "name");
+					pageNav.Target = Utilitys.Xml.ReadAttribute(page, "target");
+
+					groupNav.Childs.Add(pageNav);
+				}
+
+				info.Navigation.Childs.Add(groupNav);
+			}
 
 			return info;
 		}
