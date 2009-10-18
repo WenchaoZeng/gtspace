@@ -23,10 +23,7 @@ namespace gtspace.Web.TestCase
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			foreach (IPlugin plugins in Settings.Plugins)
-			{
-				plugins.Application_BeginRequest(sender, e);
-			}
+			throw new NotImplementedException("没有实现");
 		}
 
 		protected void Button1_Click(object sender, EventArgs e)

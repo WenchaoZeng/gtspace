@@ -118,7 +118,9 @@ namespace gtspace.Web
 					Utilitys.Log.WriteLog(erroMessage.ToString());
 
 					// 显示错误页面
-					Response.Redirect(Settings.ErrorPage + "?from=" + Request.RawUrl);
+					Response.Clear();
+					Response.WriteFile(Server.MapPath(Settings.ErrorPage));
+					Response.End();
 				}
 			}
 			Server.ClearError();

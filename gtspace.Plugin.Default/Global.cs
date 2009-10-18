@@ -13,7 +13,7 @@ using gtspace.Common.Contract;
 
 namespace gtspace.Plugin.Default
 {
-	public class PluginGlobal : IPlugin
+	public class Global : IPlugin
 	{
 
 		#region IPlugin 成员
@@ -30,7 +30,11 @@ namespace gtspace.Plugin.Default
 
 		void IPlugin.Application_BeginRequest(object sender, EventArgs e)
 		{
-
+			if (HttpContext.Current.Request.RawUrl == "/hello.html")
+			{
+				HttpContext.Current.Response.Write("The Plugin say : Hello.");
+				HttpContext.Current.Response.End();
+			}
 		}
 
 		void IPlugin.Application_AuthenticateRequest(object sender, EventArgs e)

@@ -57,7 +57,7 @@
     <Content Include="默认的插件.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PluginGlobal.cs" />
+    <Compile Include="Global.cs" />
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
