@@ -9,6 +9,10 @@
 			width:100%;
 			height:500px;
 		}
+		h1
+		{
+			color:Red;
+		}
     </style>
 </head>
 <body>
