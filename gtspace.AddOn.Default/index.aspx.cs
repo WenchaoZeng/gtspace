@@ -19,6 +19,7 @@ namespace gtspace.AddOn.Default
 		protected void Page_Load(object sender, EventArgs e)
 		{
 			Label1.Text = Utilitys.JS.Alert("网站根目录的物理路径是 : " + Settings.RootPath);
+
 		}
-	}
+	}   
 }
