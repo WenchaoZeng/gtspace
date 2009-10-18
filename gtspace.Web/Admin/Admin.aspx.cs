@@ -36,8 +36,6 @@ namespace gtspace.Web.Admin
 
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			SessionState.CurrentNavigation = Settings.RootNavigation.Childs[1];
-			
 			// 主导航栏
 			foreach (Navigation nav in Settings.RootNavigation.Childs)
 			{

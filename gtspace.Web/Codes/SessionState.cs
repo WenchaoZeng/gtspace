@@ -19,19 +19,6 @@ namespace gtspace.Web.Codes
 	/// </summary>
 	public static class SessionState
 	{
-		/// <summary>
-		/// 当前导航栏
-		/// </summary>
-		public static Navigation CurrentNavigation
-		{
-			get
-			{
-				return HttpContext.Current.Session["CurrentNavigation"] as Navigation;
-			}
-			set
-			{
-				HttpContext.Current.Session["CurrentNavigation"] = value;
-			}
-		}
+
 	}
 }

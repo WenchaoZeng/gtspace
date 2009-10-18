@@ -102,7 +102,7 @@ namespace gtspace.Common.Entity
 				throw new LogicException("插件必须要有导航栏");
 			}
 			info.Navigation.Name = Utilitys.Xml.ReadAttribute(navigation[0], "name");
-			info.Navigation.Target = Utilitys.Xml.ReadAttribute(navigation[0], "target");
+			info.Navigation.Target = Settings.RootUrl + "Admin/AddOns/" + info.Directory + "/" + Utilitys.Xml.ReadAttribute(navigation[0], "target");
 
 			// 组
 			XmlNodeList groups = navigation[0].SelectNodes("group");
@@ -111,7 +111,6 @@ namespace gtspace.Common.Entity
 				Navigation groupNav = new Navigation();
 				groupNav.Childs = new List<Navigation>();
 				groupNav.Name = Utilitys.Xml.ReadAttribute(group, "name");
-				groupNav.Target = Utilitys.Xml.ReadAttribute(group, "target");
 
 				// 页面链接
 				XmlNodeList pages = group.SelectNodes("page");
@@ -119,7 +118,7 @@ namespace gtspace.Common.Entity
 				{
 					Navigation pageNav = new Navigation();
 					pageNav.Name = Utilitys.Xml.ReadAttribute(page, "name");
-					pageNav.Target = Utilitys.Xml.ReadAttribute(page, "target");
+					pageNav.Target = Settings.RootUrl + "Admin/AddOns/" + info.Directory + "/" + Utilitys.Xml.ReadAttribute(page, "target");
 
 					groupNav.Childs.Add(pageNav);
 				}

@@ -24,11 +24,11 @@ namespace gtspace.Common
 		{
 			 get
 			 {
-				 return _rootPath;
+				 return _rootUrl;
 			 }
 			 set
 			 {
-				 _rootPath = value;
+				 _rootUrl = value;
 			 }
 		}
 
@@ -182,20 +182,12 @@ namespace gtspace.Common
 			_rootNavigation.Target = Settings._rootUrl + "Admin/Desktop.aspx";
 			_rootNavigation.Childs = new List<Navigation>();
 
-			Navigation nav1 = new Navigation();
-			nav1.Name = "百度";
-			nav1.Target = "http://www.baidu.com/";
-			nav1.Childs = new List<Navigation>();
-			nav1.Childs.Add(new Navigation() { Name = "百度MP3", Target = "http://mp3.baidu.com/"});
-			nav1.Childs.Add(new Navigation() { Name = "百度图片", Target = "http://pic.baidu.com/" });
-			_rootNavigation.Childs.Add(nav1);
-
-			Navigation nav2 = new Navigation();
-			nav2.Name = "谷歌";
-			nav2.Target = "http://www.google.com/";
-			_rootNavigation.Childs.Add(nav2);
-
-
+			// 读取插件列表里的每一个导航栏
+			List<AddOnInfo> addons = AddOnInfo.LoadAll(@"E:\Now Working\Asp.net Projects\gtspace");
+			foreach (AddOnInfo addon in addons)
+			{
+				_rootNavigation.Childs.Add(addon.Navigation);
+			}
 		}
 
 		#endregion 公有方法
