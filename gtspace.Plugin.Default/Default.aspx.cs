@@ -10,17 +10,14 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
-using gtspace.Common;
-using gtspace.Web.Codes;
 
 namespace gtspace.Plugin.Default
 {
-	public partial class index : AdminPage
+	public partial class Default : System.Web.UI.Page
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			Label1.Text = Utilitys.JS.Alert("网站根目录的物理路径是 : " + Settings.RootPath);
 
 		}
-	}   
+	}
 }

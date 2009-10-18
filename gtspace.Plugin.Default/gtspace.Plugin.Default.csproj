@@ -57,20 +57,40 @@
     <Content Include="默认的插件.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Global.cs" />
-    <Compile Include="index.aspx.cs">
+    <Compile Include="Admin\Plugins\MyPlugin\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="index.aspx.designer.cs">
+    <Compile Include="Admin\Plugins\MyPlugin\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Templates\Default\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Templates\Default\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="plugin.config" />
+    <Content Include="Admin\Plugins\MyPlugin\index.aspx" />
+    <Content Include="Admin\Plugins\MyPlugin\plugin.config" />
+    <Content Include="Database\Access2003数据库.txt" />
+    <Content Include="Database\gtspace.mdb">
+    </Content>
+    <Content Include="Error\app_error.html" />
     <Content Include="Global.asax" />
-    <Content Include="index.aspx" />
+    <Content Include="Log\日志文件.txt" />
+    <Content Include="Templates\前台模板.txt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\gtspace.Common\gtspace.Common.csproj">
@@ -89,6 +109,11 @@
       <Project>{2818F2AB-0120-431D-AC32-E86548AF47FB}</Project>
       <Name>gtspace.Web</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Default.aspx" />
+    <Content Include="Templates\Default\Default.aspx" />
+    <Content Include="Templates\Default\template.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
