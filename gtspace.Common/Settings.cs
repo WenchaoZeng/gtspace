@@ -183,7 +183,7 @@ namespace gtspace.Common
 			_rootNavigation.Childs = new List<Navigation>();
 
 			// 读取插件列表里的每一个导航栏
-			List<AddOnInfo> addons = AddOnInfo.LoadAll(@"E:\Now Working\Asp.net Projects\gtspace");
+			List<AddOnInfo> addons = AddOnInfo.LoadAll(Settings.RootPath + @"Admin\AddOns");
 			foreach (AddOnInfo addon in addons)
 			{
 				_rootNavigation.Childs.Add(addon.Navigation);

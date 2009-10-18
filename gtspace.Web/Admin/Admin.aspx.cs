@@ -44,6 +44,11 @@ namespace gtspace.Web.Admin
 
 			// 加载页面
 			_load = Request.QueryString["target"];
+			if (string.IsNullOrEmpty(_load))
+			{
+				_load = Settings.RootNavigation.Target;
+				return;
+			}
 
 			// 二级导航
 			Navigation subNav = Settings.RootNavigation.Find(_load);

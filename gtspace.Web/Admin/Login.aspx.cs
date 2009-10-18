@@ -17,7 +17,8 @@ namespace gtspace.Web.Admin
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
-
+			// 当做已经登录了
+			Response.Redirect("Admin.aspx");
 		}
 	}
 }
