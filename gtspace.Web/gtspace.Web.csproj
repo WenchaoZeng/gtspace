@@ -56,6 +56,8 @@
     <Content Include="Admin\Admin.aspx" />
     <Content Include="Admin\Default.aspx" />
     <Content Include="Admin\Desktop.aspx" />
+    <Content Include="Admin\Styles\Images\样式图片.txt" />
+    <Content Include="Admin\Styles\样式文件.txt" />
     <Content Include="Admin\后台管理.txt" />
     <Content Include="Cache\dll缓冲区.txt" />
     <Content Include="Error\404_error.html" />

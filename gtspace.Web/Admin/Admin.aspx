@@ -17,15 +17,7 @@
 </head>
 <body>
 	<h1>GTSpace后台管理</h1>
-	
-	<!-- 管理员导航 -->
-	<ul id="admin_nav">
-		<li><a href="#">菜单</a></li>
-		<li><a href="#">菜单</a></li>
-		<li><a href="#">菜单</a></li>
-		<li><a href="#">菜单</a></li>
-	</ul>
-	
+
 	<!-- 主导航栏 -->
 	<ul id="main_nav">
 		<%=_main_nav %>
