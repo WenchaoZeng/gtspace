@@ -60,12 +60,15 @@ namespace gtspace.Common.Entity
 		#region 公有方法
 
 		/// <summary>
-		/// 从一个模板配置文件里读取配置信息, 如果配置文件不存在则返回null
+		/// 从一个插件配置文件里读取配置信息, 如果不能成功读取则抛出异常
 		/// </summary>
-		/// <param name="path">配置文件的物理绝对路径</param>
+		/// <param name="path">插件文件夹的物理绝对路径 (后面不加 / 或 \ )</param>
 		/// <returns>插件配置信息</returns>
+		/// <exception cref="LogicException"/>
 		public static AddOnInfo Load(string path)
 		{
+			// 构造配置文件路径
+			path += "\\" + _configfile;
 			if (!File.Exists(path))
 			{
 				throw new LogicException("插件配置文件不存在");
@@ -130,12 +133,41 @@ namespace gtspace.Common.Entity
 		/// <summary>
 		/// 读取所有插件信息
 		/// </summary>
+		/// <param name="path">放置许多插件的文件夹路径</param>
 		/// <returns>插件列表</returns>
-		public static List<AddOnInfo> LoadAll()
+		public static List<AddOnInfo> LoadAll(string path)
 		{
-			throw new NotImplementedException("没有写这个函数");
+			List<AddOnInfo> addons = new List<AddOnInfo>();
+
+			// 列出子文件夹
+			string[] subPaths = System.IO.Directory.GetDirectories(path);
+
+			// 读取配置信息
+			foreach (string subPath in subPaths)
+			{
+				try
+				{
+					addons.Add(Load(subPath));
+				}
+				catch (LogicException ex)
+				{
+					// 做日志, 并忽视一切错误
+					Utilitys.Log.WriteLog("读取" + subPath + "时发生错误, 错误信息为 : " + ex.Message);
+				}
+			}
+
+			return addons;
 		}
 
 		#endregion 公有方法
+
+		#region 私有字段
+
+		/// <summary>
+		/// 配置文件的文件名
+		/// </summary>
+		static string _configfile = "addon.config";
+
+		#endregion
 	}
 }

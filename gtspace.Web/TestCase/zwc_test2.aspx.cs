@@ -21,7 +21,7 @@ namespace gtspace.Web.TestCase
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			List<TemplateInfo> templates = TemplateInfo.LoadAll(Settings.RootPath + "Templates");
+			List<AddOnInfo> templates = AddOnInfo.LoadAll(@"E:\Now Working\Asp.net Projects\gtspace");
 
 			Response.Write("hello");
 		}

@@ -60,7 +60,7 @@ namespace gtspace.Common.Entity
 		#region 公有方法
 
 		/// <summary>
-		/// 从一个模板配置文件里读取配置信息, 如果配置文件不存在则返回null
+		/// 从一个模板配置文件里读取配置信息, , 如果不能成功读取则抛出异常
 		/// </summary>
 		/// <param name="path">模板文件夹的物理绝对路径 (后面不加 / 或 \ )</param>
 		/// <returns>模板配置信息</returns>
@@ -145,7 +145,7 @@ namespace gtspace.Common.Entity
 			return templates;
 		}
 
-		#endregion
+		#endregion 公有方法
 
 		#region 私有字段
 
