@@ -55,6 +55,7 @@
   <ItemGroup>
     <Content Include="Admin\Admin.aspx" />
     <Content Include="Admin\Default.aspx" />
+    <Content Include="Admin\Desktop.aspx" />
     <Content Include="Admin\Login.aspx" />
     <Content Include="Admin\后台管理.txt" />
     <Content Include="Error\404_error.html" />
@@ -99,6 +100,13 @@
     </Compile>
     <Compile Include="Admin\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Desktop.aspx.cs">
+      <DependentUpon>Desktop.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Desktop.aspx.designer.cs">
+      <DependentUpon>Desktop.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

@@ -178,11 +178,16 @@ namespace gtspace.Common
 		public static void LoadRootNavigation()
 		{
 			_rootNavigation = new Navigation();
+			_rootNavigation.Name = "主导航";
+			_rootNavigation.Target = Settings._rootUrl + "Admin/Desktop.aspx";
 			_rootNavigation.Childs = new List<Navigation>();
 
 			Navigation nav1 = new Navigation();
 			nav1.Name = "百度";
 			nav1.Target = "http://www.baidu.com/";
+			nav1.Childs = new List<Navigation>();
+			nav1.Childs.Add(new Navigation() { Name = "百度MP3", Target = "http://mp3.baidu.com/"});
+			nav1.Childs.Add(new Navigation() { Name = "百度图片", Target = "http://pic.baidu.com/" });
 			_rootNavigation.Childs.Add(nav1);
 
 			Navigation nav2 = new Navigation();

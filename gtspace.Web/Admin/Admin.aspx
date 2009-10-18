@@ -29,10 +29,7 @@
 	
 	<!-- 二级导航栏 -->
 	<ul id="sub_nav">
-		<li><a href="#">菜单</a></li>
-		<li><a href="#">菜单</a></li>
-		<li><a href="#">菜单</a></li>
-		<li><a href="#">菜单</a></li>
+		<%=_sub_nav %>
 	</ul>
 	
 	<!-- 页面内容 -->

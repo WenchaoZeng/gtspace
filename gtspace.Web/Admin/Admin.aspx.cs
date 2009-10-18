@@ -28,11 +28,16 @@ namespace gtspace.Web.Admin
 		/// </summary>
 		protected string _main_nav;
 
+		/// <summary>
+		/// 二级导航
+		/// </summary>
+		protected string _sub_nav;
+
 
 		protected void Page_Load(object sender, EventArgs e)
 		{
 			SessionState.CurrentNavigation = Settings.RootNavigation.Childs[1];
-
+			
 			// 主导航栏
 			foreach (Navigation nav in Settings.RootNavigation.Childs)
 			{
@@ -41,6 +46,16 @@ namespace gtspace.Web.Admin
 
 			// 加载页面
 			_load = Request.QueryString["target"];
+
+			// 二级导航
+			Navigation subNav = Settings.RootNavigation.Find(_load);
+			if (subNav != null && subNav.Childs != null)
+			{
+				foreach (Navigation nav in subNav.Childs)
+				{
+					_sub_nav += "<li><a href=\"?target=" + nav.Target + "\">" + nav.Name + "</a></li>";
+				}
+			}
 		}
 	}
 }
