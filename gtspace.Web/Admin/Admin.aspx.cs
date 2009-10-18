@@ -16,7 +16,7 @@ using gtspace.Common.Entity;
 
 namespace gtspace.Web.Admin
 {
-	public partial class Admin : System.Web.UI.Page
+	public partial class Admin : AdminPage
 	{
 		/// <summary>
 		/// 当前加载的页面

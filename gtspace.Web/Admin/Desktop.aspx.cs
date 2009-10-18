@@ -10,10 +10,11 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
+using gtspace.Web.Codes;
 
 namespace gtspace.Web.Admin
 {
-	public partial class Desktop : System.Web.UI.Page
+	public partial class Desktop : AdminPage
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{

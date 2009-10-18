@@ -11,10 +11,11 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using gtspace.Common;
+using gtspace.Web.Codes;
 
 namespace gtspace.AddOn.Default
 {
-	public partial class index : System.Web.UI.Page
+	public partial class index : AdminPage
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{

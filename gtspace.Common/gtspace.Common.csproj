@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contract\IAddOn.cs" />
     <Compile Include="Entity\AddOnInfo.cs" />
     <Compile Include="Entity\LogicException.cs" />
     <Compile Include="Entity\Navigation.cs" />
@@ -63,6 +64,8 @@
     <Compile Include="ZipHelper.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Contract\接口.txt" />
+    <Content Include="Entity\实体.txt" />
     <Content Include="通用类.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

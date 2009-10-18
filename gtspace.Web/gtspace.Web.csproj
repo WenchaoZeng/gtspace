@@ -64,9 +64,7 @@
     <Content Include="Database\gtspace.mdb">
     </Content>
     <Content Include="Default.aspx" />
-    <Content Include="DLL\重用的类库.txt" />
     <Content Include="Global.asax" />
-    <Content Include="Install\是否可以免安装.txt" />
     <Content Include="Log\错误日志.txt" />
     <Content Include="robots.txt" />
     <Content Include="Templates\Default\Blocks\页面块.txt" />
