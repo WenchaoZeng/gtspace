@@ -62,10 +62,13 @@ namespace gtspace.Common.Entity
 		/// <summary>
 		/// 从一个模板配置文件里读取配置信息, 如果配置文件不存在则返回null
 		/// </summary>
-		/// <param name="path">配置文件的物理绝对路径</param>
+		/// <param name="path">模板文件夹的物理绝对路径 (后面不加 / 或 \ )</param>
 		/// <returns>模板配置信息</returns>
+		/// <exception cref="LogicException"/>
 		public static TemplateInfo Load(string path)
 		{
+			// 构造配置文件路径
+			path += "\\" + _configfile;
 			if (!File.Exists(path))
 			{
 				throw new LogicException("模板配置文件不存在");
@@ -116,11 +119,40 @@ namespace gtspace.Common.Entity
 		/// <summary>
 		/// 读取所有模板信息
 		/// </summary>
+		/// <param name="path">放置许多模板的模板文件夹路径</param>
 		/// <returns>模板列表</returns>
-		public static List<TemplateInfo> LoadAll()
+		public static List<TemplateInfo> LoadAll(string path)
 		{
-			throw new NotImplementedException("没有写这个函数");
+			List<TemplateInfo> templates = new List<TemplateInfo>();
+
+			// 列出子文件夹
+			string[] subPaths = System.IO.Directory.GetDirectories(path);
+
+			// 读取配置信息
+			foreach (string subPath in subPaths)
+			{
+				try
+				{
+					templates.Add(Load(subPath));
+				}
+				catch (LogicException ex)
+				{ 
+					// 做日志, 并忽视一切错误
+					Utilitys.Log.WriteLog("读取" + subPath + "时发生错误, 错误信息为 : " + ex.Message);
+				}
+			}
+
+			return templates;
 		}
+
+		#endregion
+
+		#region 私有字段
+
+		/// <summary>
+		/// 配置文件的文件名
+		/// </summary>
+		static string _configfile = "template.config";
 
 		#endregion
 	}

@@ -151,7 +151,7 @@ namespace gtspace.Common
 		/// </summary>
 		public static void LoadRewriteRules()
 		{
-			TemplateInfo info = TemplateInfo.Load(RootPath + "Templates\\" + CurrentTemplate + "\\template.config");
+			TemplateInfo info = TemplateInfo.Load(RootPath + "Templates\\" + CurrentTemplate);
 			if (info.RewriteRules != null)
 			{
 				_rewriteRules = info.RewriteRules;

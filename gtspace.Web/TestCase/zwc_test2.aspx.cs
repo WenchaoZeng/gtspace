@@ -12,6 +12,8 @@ using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using System.Web.Configuration;
 using gtspace.Common.Entity;
+using System.Collections.Generic;
+using gtspace.Common;
 
 namespace gtspace.Web.TestCase
 {
@@ -19,14 +21,14 @@ namespace gtspace.Web.TestCase
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
+			List<TemplateInfo> templates = TemplateInfo.LoadAll(Settings.RootPath + "Templates");
 
+			Response.Write("hello");
 		}
 
 		protected void Button1_Click(object sender, EventArgs e)
 		{
-			AddOnInfo addon = AddOnInfo.Load(@"E:\Now Working\Asp.net Projects\gtspace\gtspace.AddOn.Default\addon.config");
-
-			Response.Write(addon.Name);
+			
 		}
 	}
 }
