@@ -1,0 +1,38 @@
+﻿@import "Normal.css";
+
+#head
+{
+	background-color:#DCB10B;
+	color:#31A208;
+	height:70px;
+	line-height:60px;
+	text-indent:2em;
+}
+#main_nav
+{
+	background-color:#F7EA68;
+	padding-left:2em;
+	line-height:2em;
+}
+#main_nav a
+{
+	text-decoration:none;
+	background-color:#A2DB4E;
+	display:inline-block;
+	padding:0px 0.5em 0px 0.5em;
+	font-weight:bold;
+}
+#main_nav a:visited
+{
+	color:Black;
+}
+#main_nav a:hover
+{
+	background-color:#204A03;
+	outline:none;
+}
+#page_content
+{
+	width:100%;
+	height:500px;
+}

@@ -2,21 +2,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head runat="server">
-    <title>GTSpace后台管理</title>
-    <style type="text/css">
-		#page_content
-		{
-			width:100%;
-			height:500px;
-		}
-		h1
-		{
-			color:Red;
-		}
-    </style>
+    <title>GTSpace后台管理系统</title>
+    <script type="text/javascript" src="Javascripts/admin.js"></script>
+    <link href="Styles/admin.css" rel="Stylesheet" type="text/css" />
 </head>
 <body>
-	<h1>GTSpace后台管理</h1>
+	<h1 id="head">GTSpace后台管理系统</h1>
 
 	<!-- 主导航栏 -->
 	<ul id="main_nav">
