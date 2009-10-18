@@ -28,7 +28,7 @@ namespace gtspace.Common.Contract
 		void Session_Start(object sender, EventArgs e);
 
 		/// <summary>
-		/// 一起请求的开始
+		/// 一个请求的开始
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>

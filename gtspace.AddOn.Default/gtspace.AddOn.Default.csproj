@@ -57,6 +57,7 @@
     <Content Include="默认的插件.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddOn.cs" />
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

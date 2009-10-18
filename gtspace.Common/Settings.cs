@@ -7,6 +7,7 @@ using System.Text;
 using System.Configuration;
 using System.Web.Configuration;
 using gtspace.Common.Entity;
+using gtspace.Common.Contract;
 
 namespace gtspace.Common
 {
@@ -142,6 +143,25 @@ namespace gtspace.Common
 			}
 		}
 
+		/// <summary>
+		/// 设置或获取插件接口列表
+		/// </summary>
+		public static List<IAddOn> AddOns
+		{
+			set 
+			{
+				_addOns = value;
+			}
+			get
+			{
+				if (_addOns == null)
+				{
+					LoadAddons();
+				}
+				return _addOns;
+			}
+		}
+
 		#endregion 公有属性
 
 		#region 方法
@@ -187,6 +207,24 @@ namespace gtspace.Common
 			foreach (AddOnInfo addon in addons)
 			{
 				_rootNavigation.Childs.Add(addon.Navigation);
+			}
+		}
+
+		/// <summary>
+		/// 加载所有插件的插件接口列表
+		/// </summary>
+		public static void LoadAddons()
+		{
+			_addOns = new List<IAddOn>();
+
+			List<AddOnInfo> infos = AddOnInfo.LoadAll(Settings.RootPath + "Admin\\AddOns");
+			foreach (AddOnInfo info in infos)
+			{
+				IAddOn addon = AddOnInfo.LoadAddOn(Settings.RootPath + "bin\\" + info.DLLFile);
+				if (addon != null)
+				{
+					_addOns.Add(addon);
+				}
 			}
 		}
 
@@ -253,6 +291,11 @@ namespace gtspace.Common
 		/// 主导航栏
 		/// </summary>
 		static Navigation _rootNavigation = null;
+
+		/// <summary>
+		/// 插件接口的公共方法
+		/// </summary>
+		static List<IAddOn> _addOns = null;
 
 		#endregion 私有变量
 	}

@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Xml;
 using System.IO;
+using gtspace.Common.Contract;
+using System.Reflection;
 
 namespace gtspace.Common.Entity
 {
@@ -156,6 +158,20 @@ namespace gtspace.Common.Entity
 			}
 
 			return addons;
+		}
+
+		/// <summary>
+		/// 加载插件接口实体
+		/// </summary>
+		/// <returns></returns>
+		public static IAddOn LoadAddOn(string dllPath)
+		{
+			Assembly asm = Assembly.LoadFile(dllPath);
+			Type[] types = asm.GetTypes();
+
+			Type type = types.First(p => p.GetInterface("gtspace.Common.Contract.IAddOn") != null);
+
+			return type == null ? null : (IAddOn)asm.CreateInstance(type.FullName);
 		}
 
 		#endregion 公有方法
