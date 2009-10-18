@@ -9,6 +9,7 @@ using System.Web.SessionState;
 using System.Xml.Linq;
 using gtspace.Common;
 using System.Text;
+using gtspace.Common.Contract;
 
 namespace gtspace.Web
 {
@@ -53,21 +54,41 @@ namespace gtspace.Web
 					Settings.RootUrl = "http://" + server_name + ":" + server_port + "/";
 				}
 			}
+
+			// 调用插件
+			foreach (IPlugin plugin in Settings.Plugins)
+			{
+				plugin.Application_Start(sender, e);
+			}
         }
 
         protected void Session_Start(object sender, EventArgs e)
         {
-
+			// 调用插件
+			foreach (IPlugin plugin in Settings.Plugins)
+			{
+				plugin.Session_Start(sender, e);
+			}
         }
 
         protected void Application_BeginRequest(object sender, EventArgs e)
         {
 			Utilitys.UrlRewriter.RewriteUrl();
+
+			// 调用插件
+			foreach (IPlugin plugin in Settings.Plugins)
+			{
+				plugin.Application_BeginRequest(sender, e);
+			}
         }
 
         protected void Application_AuthenticateRequest(object sender, EventArgs e)
         {
-
+			// 调用插件
+			foreach (IPlugin plugin in Settings.Plugins)
+			{
+				plugin.Application_AuthenticateRequest(sender, e);
+			}
         }
 
         protected void Application_Error(object sender, EventArgs e)
@@ -101,16 +122,30 @@ namespace gtspace.Web
 				}
 			}
 			Server.ClearError();
+
+			// 调用插件
+			foreach (IPlugin plugin in Settings.Plugins)
+			{
+				plugin.Application_Error(sender, e);
+			}
         }
 
         protected void Session_End(object sender, EventArgs e)
         {
-
+			// 调用插件
+			foreach (IPlugin plugin in Settings.Plugins)
+			{
+				plugin.Session_End(sender, e);
+			}
         }
 
         protected void Application_End(object sender, EventArgs e)
         {
-
+			// 调用插件
+			foreach (IPlugin plugin in Settings.Plugins)
+			{
+				plugin.Application_End(sender, e);
+			}
         }
     }
 }
