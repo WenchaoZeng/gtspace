@@ -31,18 +31,8 @@ namespace gtspace.Common
 		public static UrlRewriter UrlRewriter = new UrlRewriter();
 
 		/// <summary>
-		/// 模板帮助器
-		/// </summary>
-		public static TemplateHelper Template = new TemplateHelper();
-
-		/// <summary>
 		/// Xml帮助器
 		/// </summary>
 		public static XmlHelper Xml = new XmlHelper();
-
-		/// <summary>
-		/// 插件帮助器
-		/// </summary>
-		public static AddOnHelper AddOn = new AddOnHelper();
     }
 }

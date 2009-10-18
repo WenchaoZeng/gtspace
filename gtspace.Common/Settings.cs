@@ -5,8 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Configuration;
-using gtspace.Entity;
 using System.Web.Configuration;
+using gtspace.Common.Entity;
 
 namespace gtspace.Common
 {
@@ -151,7 +151,7 @@ namespace gtspace.Common
 		/// </summary>
 		public static void LoadRewriteRules()
 		{
-			TemplateInfo info = Utilitys.Template.Load(RootPath + "Templates\\" + CurrentTemplate + "\\template.config");
+			TemplateInfo info = TemplateInfo.Load(RootPath + "Templates\\" + CurrentTemplate + "\\template.config");
 			if (info.RewriteRules != null)
 			{
 				_rewriteRules = info.RewriteRules;

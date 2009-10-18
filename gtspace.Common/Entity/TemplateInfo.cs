@@ -1,27 +1,70 @@
 ﻿/// Created by zwc at 2009年10月16日
-/// Modified by zwc at 2009年10月17日, 实现了Load方法
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using gtspace.Entity;
-using System.Xml;
-using Glassesol.Entity;
 using System.IO;
+using System.Xml;
 
-namespace gtspace.Common
+namespace gtspace.Common.Entity
 {
 	/// <summary>
-	/// 模板帮助器
+	/// 模板信息
 	/// </summary>
-	public class TemplateHelper
+	public class TemplateInfo
 	{
+		#region 公有属性
+
+		/// <summary>
+		/// 模板所在的目录名
+		/// </summary>
+		public string Directory { get; set; }
+
+		/// <summary>
+		/// 模板的名字
+		/// </summary>
+		public string Name { get; set; }
+
+		/// <summary>
+		/// 版本号
+		/// </summary>
+		public string Version { get; set; }
+
+		/// <summary>
+		/// 作者
+		/// </summary>
+		public string Author { get; set; }
+
+		/// <summary>
+		/// 版权信息
+		/// </summary>
+		public string CopyRight { get; set; }
+
+		/// <summary>
+		/// 略缩图
+		/// </summary>
+		public string ScreenShot { get; set; }
+
+		/// <summary>
+		/// 描述
+		/// </summary>
+		public string Description { get; set; }
+
+		/// <summary>
+		/// Url地址重写列表
+		/// </summary>
+		public List<RewriteRule> RewriteRules { get; set; }
+
+		#endregion 公有属性
+
+		#region 公有方法
+
 		/// <summary>
 		/// 从一个模板配置文件里读取配置信息, 如果配置文件不存在则返回null
 		/// </summary>
 		/// <param name="path">配置文件的物理绝对路径</param>
 		/// <returns>模板配置信息</returns>
-		public TemplateInfo Load(string path)
+		public static TemplateInfo Load(string path)
 		{
 			if (!File.Exists(path))
 			{
@@ -75,9 +118,11 @@ namespace gtspace.Common
 		/// 读取所有模板信息
 		/// </summary>
 		/// <returns>模板列表</returns>
-		public List<TemplateInfo> LoadAll()
+		public static List<TemplateInfo> LoadAll()
 		{
 			throw new NotImplementedException("没有写这个函数");
 		}
+
+		#endregion
 	}
 }

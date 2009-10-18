@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace gtspace.Entity
+namespace gtspace.Common.Entity
 {
 	/// <summary>
 	/// Url地址重写规则

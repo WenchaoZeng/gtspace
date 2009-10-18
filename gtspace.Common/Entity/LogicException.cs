@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Glassesol.Entity
+namespace gtspace.Common.Entity
 {
     /// <summary>
     /// 逻辑错误, 由于用户的操作不当而发生的, 不影响系统正常

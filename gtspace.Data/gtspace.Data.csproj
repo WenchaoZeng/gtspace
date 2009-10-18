@@ -56,10 +56,6 @@
       <Project>{9915FE04-94DE-4612-8900-9EAAAE5BF027}</Project>
       <Name>gtspace.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\gtspace.Entity\gtspace.Entity.csproj">
-      <Project>{A6D15EC6-BF3A-4457-8F73-9DE5E3F942D0}</Project>
-      <Name>gtspace.Entity</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

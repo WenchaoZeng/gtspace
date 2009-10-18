@@ -80,10 +80,6 @@
       <Project>{C356F7E2-23D0-4A3E-88DB-E70B9475B14C}</Project>
       <Name>gtspace.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\gtspace.Entity\gtspace.Entity.csproj">
-      <Project>{A6D15EC6-BF3A-4457-8F73-9DE5E3F942D0}</Project>
-      <Name>gtspace.Entity</Name>
-    </ProjectReference>
     <ProjectReference Include="..\gtspace.ServerControls\gtspace.ServerControls.csproj">
       <Project>{6A472214-1425-436D-94D0-D21F0FB5699E}</Project>
       <Name>gtspace.ServerControls</Name>

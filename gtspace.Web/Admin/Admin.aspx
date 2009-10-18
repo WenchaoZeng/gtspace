@@ -3,27 +3,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head runat="server">
     <title>GTSpace后台管理</title>
-    <script type="text/javascript">
-		var iframe = "page_content";
-		// 使用iframe来打开链接, 参数a代表超链接
-		function menu_click(a)
+    <style type="text/css">
+		#page_content
 		{
-			document.getElementById(iframe).src = a.href;
-			return false;
+			width:100%;
+			height:500px;
 		}
-		// 给一个容器下的所有超链接加上iframe打开机制
-		function init_href(panelid)
-		{
-			var links = document.getElementById(panelid).getElementsByTagName("A");
-			for (var i = 0; i < links.length; ++i)
-			{
-				links[i].onclick = function()
-				{
-					return menu_click(this);
-				}
-			}
-		}
-    </script>
+    </style>
 </head>
 <body>
 	<h1>GTSpace后台管理</h1>
@@ -50,14 +36,8 @@
 	</ul>
 	
 	<!-- 页面内容 -->
-	<iframe id="page_content">
+	<iframe id="page_content" src="<%=_load %>">
 	</iframe>
-	
-	<script type="text/javascript">
-		// 初始化
-		init_href("admin_nav");
-		init_href("main_nav");
-		init_href("sub_nav");
-	</script>
+
 </body>
 </html>
