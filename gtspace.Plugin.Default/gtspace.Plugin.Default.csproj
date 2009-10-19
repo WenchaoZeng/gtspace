@@ -108,6 +108,7 @@
     <Compile Include="Templates\Default\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ZipHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin\Plugins\MyPlugin\index.aspx" />

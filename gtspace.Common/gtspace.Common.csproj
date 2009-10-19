@@ -60,7 +60,6 @@
     <Compile Include="UrlRewriter.cs" />
     <Compile Include="Utilitys.cs" />
     <Compile Include="XmlHelper.cs" />
-    <Compile Include="ZipHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Contract\接口.txt" />
