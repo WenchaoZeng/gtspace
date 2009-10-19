@@ -22,6 +22,14 @@ namespace gtspace.Plugin.Default.Admin.Plugins.MyPlugin.PluginsManage
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
+			
+		}
+
+		protected override void OnPreRender(EventArgs e)
+		{
+			base.OnPreRender(e);
+
+			// 显示插件列表
 			List<PluginInfo> infos = PluginInfo.LoadAll(Settings.RootPath + "Admin\\Plugins");
 			PluginsGridView.DataKeyNames = new string[] { "Directory" };
 			PluginsGridView.DataSource = infos;
@@ -42,21 +50,24 @@ namespace gtspace.Plugin.Default.Admin.Plugins.MyPlugin.PluginsManage
 			try
 			{
 				// 获取插件信息
-				PluginInfo info = PluginInfo.Load(Settings.RootPath + "Admin\\Plugins\\" + directory + "\\" + PluginInfo.ConfigFile);
+				PluginInfo info = PluginInfo.Load(Settings.RootPath + "Admin\\Plugins\\" + directory);
 
 				// 删除DLL
 				File.Delete(Settings.RootPath + "bin\\" + info.DLLFile);
 
 				// 删除插件文件夹
 				Directory.Delete(Settings.RootPath + "Admin\\Plugins\\" + info.Directory);
+
+				// 删除完毕
+				JavaScriptLabel.Text = Utilitys.JS.Alert("成功删除插件 : " + info.Name);
 			}
 			catch (LogicException ex)
 			{
 				Utilitys.Log.WriteLog("删除插件出错\r\n" + ex.ToString());
 
 				// 通知用户
-				//JavaScriptLabel.Text = JavaScriptHelper
+				JavaScriptLabel.Text = Utilitys.JS.Alert("删除插件出错, 原因 : " + ex.Message);
 			}
-		}
+	 	}
 	}
 }

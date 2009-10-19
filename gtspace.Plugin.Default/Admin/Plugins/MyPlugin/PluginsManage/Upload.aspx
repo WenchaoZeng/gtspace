@@ -8,9 +8,17 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
 		<h1>上传插件</h1>
-    </div>
+		<label for="PluginFileUpload">选择插件压缩包<br />
+		<br />
+		</label>&nbsp;<asp:FileUpload ID="PluginFileUpload" runat="server" />
+		<br />
+		<br />
+		<asp:Button ID="UploadButton" runat="server" Text="点击开始上传" 
+			onclick="UploadButton_Click" />
+		<br />
+		<br />
+		<asp:Label ID="JavascriptLabel" runat="server" EnableViewState="false" Text=""></asp:Label>
     </form>
 </body>
 </html>
