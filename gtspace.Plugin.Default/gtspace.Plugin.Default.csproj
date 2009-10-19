@@ -64,6 +64,34 @@
     <Compile Include="Admin\Plugins\MyPlugin\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Plugins\MyPlugin\PluginsManage\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Plugins\MyPlugin\PluginsManage\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Plugins\MyPlugin\PluginsManage\Upload.aspx.cs">
+      <DependentUpon>Upload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Plugins\MyPlugin\PluginsManage\Upload.aspx.designer.cs">
+      <DependentUpon>Upload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Plugins\MyPlugin\TemplatesManage\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Plugins\MyPlugin\TemplatesManage\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Plugins\MyPlugin\TemplatesManage\Upload.aspx.cs">
+      <DependentUpon>Upload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Plugins\MyPlugin\TemplatesManage\Upload.aspx.designer.cs">
+      <DependentUpon>Upload.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -111,6 +139,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\Plugins\MyPlugin\PluginsManage\List.aspx" />
+    <Content Include="Admin\Plugins\MyPlugin\PluginsManage\Upload.aspx" />
+    <Content Include="Admin\Plugins\MyPlugin\TemplatesManage\List.aspx" />
+    <Content Include="Admin\Plugins\MyPlugin\TemplatesManage\Upload.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Templates\Default\Default.aspx" />
     <Content Include="Templates\Default\template.config" />
