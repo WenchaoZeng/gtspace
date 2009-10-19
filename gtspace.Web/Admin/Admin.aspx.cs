@@ -37,7 +37,7 @@ namespace gtspace.Web.Admin
 		protected void Page_Load(object sender, EventArgs e)
 		{
 			// 加载页面
-			_load = Request.QueryString["target"];
+			_load = Server.UrlDecode(Request.QueryString["target"]);
 			if (string.IsNullOrEmpty(_load))
 			{
 				_load = Settings.RootNavigation.Target;
@@ -46,12 +46,12 @@ namespace gtspace.Web.Admin
 			// 主导航栏
 			foreach (Navigation nav in Settings.RootNavigation.Childs)
 			{
-				_main_nav += "<li><a" + (nav.Target == _load ? " class=\"current\"" : "") + " href=\"?target=" + nav.Target + "\">" + nav.Name + "</a></li>";
+				_main_nav += "<li><a" + (nav.Target == _load ? " class=\"current\"" : "") + " href=\"?target=" + Server.UrlEncode(nav.Target) + "\">" + nav.Name + "</a></li>";
 			}
 
 			// 二级导航
 			Navigation subNav = Settings.RootNavigation.Find(_load);
-			if (subNav != null && subNav.Childs != null)
+			if (subNav != null && subNav.Childs != null && subNav.GetHashCode() != Settings.RootNavigation.GetHashCode())
 			{
 				foreach (Navigation nav in subNav.Childs)
 				{
@@ -62,7 +62,7 @@ namespace gtspace.Web.Admin
 					{
 						foreach (Navigation linkNav in nav.Childs)
 						{
-							_sub_nav += "<li><a" + (linkNav.Target == _load ? " class=\"current\"" : "") + " href=\"?target=" + linkNav.Target + "\">" + linkNav.Name + "</a></li>";
+							_sub_nav += "<li><a" + (linkNav.Target == _load ? " class=\"current\"" : "") + " href=\"?target=" + Server.UrlEncode(linkNav.Target) + "\">" + linkNav.Name + "</a></li>";
 						}
 					}
 					_sub_nav += "</ul>";

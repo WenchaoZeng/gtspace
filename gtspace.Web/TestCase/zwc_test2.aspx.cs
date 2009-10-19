@@ -24,27 +24,7 @@ namespace gtspace.Web.TestCase
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			//OleDbConnection conn = new OleDbConnection(Settings.ConnectionString);
-			//OleDbCommand cmd = new OleDbCommand("select * from demo", conn);
-			//conn.Open();
-			//OleDbDataReader reader = cmd.ExecuteReader();
-			//while (reader.Read())
-			//{
-			//    Response.Write("Name : " + reader["Name"] + "<br />");
-			//}
-			//conn.Close();
-
-			// 查询数据库
-			using (SqlHelper helper = new SqlHelper())
-			{
-				DataTable table = helper.ExecuteDataTable("select * from demo");
-				foreach (DataRow row in table.Rows)
-				{
-					Response.Write("Name : " + row["Name"] + "<br />");
-				}
-				helper.ExecuteNonQuery("create table tmp");
-			}
-
+			Response.Write(Server.UrlEncode(""));
 		}
 
 		protected void Button1_Click(object sender, EventArgs e)
