@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Diagnostics;
 
 namespace gtspace.Common
 {
@@ -18,7 +19,15 @@ namespace gtspace.Common
 		/// <param name="zipFile">目标zip文件的路径</param>
 		public void Zip(string dir, string zipFile)
 		{
-			throw new NotImplementedException("没有实现的函数");
+            string shellArguments = string.Format("x -o+ \"{0}\" \"{1}\\\"",zipFile, dir);
+            using (Process unrar = new Process())
+            {
+                unrar.StartInfo.FileName = "WinRar.exe";
+                unrar.StartInfo.Arguments = shellArguments;
+                unrar.Start();
+                unrar.WaitForExit();
+                unrar.Close();
+            }
 		}
 
 		/// <summary>
@@ -28,7 +37,15 @@ namespace gtspace.Common
 		/// <param name="dir">目标文件夹的路径</param>
 		public void UnZip(string zipFile, string dir)
 		{
-			throw new NotImplementedException("没有实现的函数");
+            string shellArguments = string.Format("a -o+ \"{0}\" \"{1}\\\"", zipFile, dir);
+            using (Process unrar = new Process())
+            {
+                unrar.StartInfo.FileName = "WinRar.exe";
+                unrar.StartInfo.Arguments = shellArguments;
+                unrar.Start();
+                unrar.WaitForExit();
+                unrar.Close();
+            }
 		}
 	}
 }
