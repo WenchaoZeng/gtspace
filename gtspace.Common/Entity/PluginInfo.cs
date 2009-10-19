@@ -70,7 +70,7 @@ namespace gtspace.Common.Entity
 		public static PluginInfo Load(string path)
 		{
 			// 构造配置文件路径
-			path += "\\" + _configfile;
+			path += "\\" + ConfigFile;
 			if (!File.Exists(path))
 			{
 				throw new LogicException("插件配置文件不存在");
@@ -181,7 +181,7 @@ namespace gtspace.Common.Entity
 		/// <summary>
 		/// 配置文件的文件名
 		/// </summary>
-		static string _configfile = "plugin.config";
+		public static string ConfigFile = "plugin.config";
 
 		#endregion
 	}

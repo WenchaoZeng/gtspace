@@ -56,7 +56,7 @@ namespace gtspace.Web.Admin
 					{
 						foreach (Navigation linkNav in nav.Childs)
 						{
-							_sub_nav += "<li><a" + (linkNav.Target == _load ? " class=\"current\"" : (" href=\"?target=" + Server.UrlEncode(linkNav.Target))) + "\">" + linkNav.Name + "</a></li>";
+							_sub_nav += "<li><a" + (linkNav.Target == _load ? " class=\"current\"" : "") + " href=\"?target=" + Server.UrlEncode(linkNav.Target) + "\">" + linkNav.Name + "</a></li>";
 						}
 					}
 					_sub_nav += "</ul>";

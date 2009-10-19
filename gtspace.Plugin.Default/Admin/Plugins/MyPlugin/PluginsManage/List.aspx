@@ -8,9 +8,18 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
 		<h1>插件列表</h1>
-    </div>
+		<asp:GridView ID="PluginsGridView" runat="server" AutoGenerateColumns="False" 
+			onrowdeleting="PluginsGridView_RowDeleting">
+			<Columns>
+				<asp:BoundField DataField="Name" HeaderText="插件名称" />
+				<asp:BoundField DataField="Version" HeaderText="版本" />
+				<asp:BoundField DataField="Author" HeaderText="作者" />
+				<asp:BoundField DataField="Description" HeaderText="描述" />
+				<asp:CommandField ShowDeleteButton="True" />
+			</Columns>
+		</asp:GridView>
+	<asp:Label ID="JavaScriptLabel" runat="server" EnableViewState="false" Text=""></asp:Label>
     </form>
 </body>
 </html>

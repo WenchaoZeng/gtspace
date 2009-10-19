@@ -44,12 +44,7 @@ namespace gtspace.Plugin.Default
 		/// <param name="e"></param>
 		void IPlugin.Application_BeginRequest(object sender, EventArgs e)
 		{
-			// 手工处理Web请求
-			if (HttpContext.Current.Request.RawUrl == "/hello.html")
-			{
-				HttpContext.Current.Response.Write("The Plugin say : Hello.");
-				HttpContext.Current.Response.End();
-			}
+
 		}
 
 		/// <summary>
