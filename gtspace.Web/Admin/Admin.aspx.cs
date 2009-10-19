@@ -36,18 +36,17 @@ namespace gtspace.Web.Admin
 
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			// 主导航栏
-			foreach (Navigation nav in Settings.RootNavigation.Childs)
-			{
-				_main_nav += "<li><a href=\"?target=" + nav.Target + "\">" + nav.Name + "</a></li>";
-			}
-
 			// 加载页面
 			_load = Request.QueryString["target"];
 			if (string.IsNullOrEmpty(_load))
 			{
 				_load = Settings.RootNavigation.Target;
-				return;
+			}
+
+			// 主导航栏
+			foreach (Navigation nav in Settings.RootNavigation.Childs)
+			{
+				_main_nav += "<li><a" + (nav.Target == _load ? " class=\"current\"" : "") + " href=\"?target=" + nav.Target + "\">" + nav.Name + "</a></li>";
 			}
 
 			// 二级导航
@@ -56,7 +55,19 @@ namespace gtspace.Web.Admin
 			{
 				foreach (Navigation nav in subNav.Childs)
 				{
-					_sub_nav += "<li><a href=\"?target=" + nav.Target + "\">" + nav.Name + "</a></li>";
+					_sub_nav += "<fieldset>";
+					_sub_nav += "<legend>" + nav.Name + "</legend>";
+					_sub_nav += "<ul>";
+					if (nav.Childs != null)
+					{
+						foreach (Navigation linkNav in nav.Childs)
+						{
+							_sub_nav += "<li><a" + (linkNav.Target == _load ? " class=\"current\"" : "") + " href=\"?target=" + linkNav.Target + "\">" + linkNav.Name + "</a></li>";
+						}
+					}
+					_sub_nav += "</ul>";
+					_sub_nav += "</fieldset>";
+					
 				}
 			}
 		}

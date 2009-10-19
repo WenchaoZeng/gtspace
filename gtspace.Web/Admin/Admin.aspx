@@ -15,13 +15,18 @@
 	</ul>
 	
 	<!-- 二级导航栏 -->
-	<ul id="sub_nav">
+	<div id="sub_nav">
 		<%=_sub_nav %>
-	</ul>
+	</div>
 	
 	<!-- 页面内容 -->
-	<iframe id="page_content" src="<%=_load %>">
+	<iframe id="page_content" frameborder="0" src="<%=_load %>">
 	</iframe>
-
+	
+	<!-- 网站信息 -->
+	<div id="siteinfo">
+		<p class="copyright">版权所有 GTeam公司 2009</p>
+	</div>
+	
 </body>
 </html>

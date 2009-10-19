@@ -3,7 +3,7 @@
 #head
 {
 	background-color:#DCB10B;
-	color:#31A208;
+	color:#111106;
 	height:70px;
 	line-height:60px;
 	text-indent:2em;
@@ -26,13 +26,67 @@
 {
 	color:Black;
 }
-#main_nav a:hover
+#main_nav a:hover, #main_nav a.current
 {
 	background-color:#204A03;
+	color:#ABDD5F;
 	outline:none;
 }
+
+#sub_nav
+{
+	background-color:#FDF7EF;
+	width:20%;
+	float:left;
+	height:500px;
+	text-indent:0.5em;
+}
+#sub_nav fieldset
+{
+	margin-bottom:0.5em;
+}
+#sub_nav legend
+{
+	background-color:#FAE39B;
+	display:block;
+	width:100%;
+	height:1.5em;
+	line-height:1.5em;
+	font-weight:bold;
+	color:#1E430E;
+}
+#sub_nav a
+{
+	background-color:#EBBA1D;
+	color:#168604;
+	display:block;
+	margin-top:2px;
+	height:1.5em;
+	line-height:1.5em;
+	text-indent:1.5em;
+	text-decoration:none;
+}
+#sub_nav a:visited
+{
+	color:#168604;
+}
+#sub_nav a:hover, #sub_nav a.current
+{
+	background-color:#978925;
+	color:#FBF2F5;
+}
+
 #page_content
 {
-	width:100%;
+	width:80%;
+	float:right;
 	height:500px;
+}
+
+#siteinfo
+{
+	clear:both;
+	background-color:#D1D0CE;
+	border-top:solid 1px #626107;
+	text-align:right;
 }
