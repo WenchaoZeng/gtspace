@@ -16,6 +16,16 @@ namespace gtspace.Common
 		public static LogHelper Log = null;
 
 		/// <summary>
+		/// JavaScript帮助器
+		/// </summary>
+		public static JavaScriptHelper JS = new JavaScriptHelper();
+
+		/// <summary>
+		/// 数据检验器
+		/// </summary>
+		public static ValidateHelper Validater = new ValidateHelper();
+
+		/// <summary>
 		/// 网页Url地址重写器
 		/// </summary>
 		public static UrlRewriter UrlRewriter = new UrlRewriter();
@@ -24,5 +34,10 @@ namespace gtspace.Common
 		/// Xml帮助器
 		/// </summary>
 		public static XmlHelper Xml = new XmlHelper();
+
+		/// <summary>
+		/// 压缩包帮助器
+		/// </summary>
+		public static ZipHelper Zip = new ZipHelper();
     }
 }
