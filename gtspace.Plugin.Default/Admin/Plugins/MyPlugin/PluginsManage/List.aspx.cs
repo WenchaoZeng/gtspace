@@ -63,8 +63,6 @@ namespace gtspace.Plugin.Default.Admin.Plugins.MyPlugin.PluginsManage
 			}
 			catch (LogicException ex)
 			{
-				Utilitys.Log.WriteLog("删除插件出错\r\n" + ex.ToString());
-
 				// 通知用户
 				JavaScriptLabel.Text = Utilitys.JS.Alert("删除插件出错, 原因 : " + ex.Message);
 			}
