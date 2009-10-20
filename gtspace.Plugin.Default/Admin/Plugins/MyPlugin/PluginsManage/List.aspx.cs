@@ -56,10 +56,16 @@ namespace gtspace.Plugin.Default.Admin.Plugins.MyPlugin.PluginsManage
 				File.Delete(Settings.RootPath + "bin\\" + info.DLLFile);
 
 				// 删除插件文件夹
-				Directory.Delete(Settings.RootPath + "Admin\\Plugins\\" + info.Directory);
+				Directory.Delete(Settings.RootPath + "Admin\\Plugins\\" + info.Directory, true);
+
+				// 刷新导航栏
+				Settings.LoadRootNavigation();
 
 				// 删除完毕
 				JavaScriptLabel.Text = Utilitys.JS.Alert("成功删除插件 : " + info.Name);
+
+				// 刷新页面
+				JavaScriptLabel.Text += Utilitys.JS.Code("parent.location.reload();");
 			}
 			catch (LogicException ex)
 			{

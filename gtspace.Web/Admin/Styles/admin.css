@@ -14,6 +14,11 @@
 	padding-left:2em;
 	line-height:2em;
 }
+#main_nav li
+{
+	margin-left:2px;
+	display:inline;
+}
 #main_nav a
 {
 	text-decoration:none;

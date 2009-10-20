@@ -49,8 +49,14 @@ namespace gtspace.Plugin.Default.Admin.Plugins.MyPlugin.PluginsManage
 				File.Copy(PluginPath + "\\" + info.DLLFile, Settings.RootPath + "bin\\" + info.DLLFile);
 				File.Delete(PluginPath + "\\" + info.DLLFile);
 
+				// 刷新导航栏
+				Settings.LoadRootNavigation();
+
 				// 插件安装完毕
 				JavascriptLabel.Text = Utilitys.JS.Alert("成功安装插件 : " + info.Name);
+
+				// 刷新页面
+				JavascriptLabel.Text += Utilitys.JS.Code("parent.location.reload();");
 			}
 			catch (LogicException ex)
 			{
