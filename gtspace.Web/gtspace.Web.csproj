@@ -83,6 +83,7 @@
     <Content Include="Templates\Default\默认模板.txt" />
     <Content Include="Templates\前台模板.txt" />
     <Content Include="Temp\临时文件.txt" />
+    <Content Include="TestCase\xl_ziptest.aspx" />
     <Content Include="TestCase\zwc_test1.aspx" />
     <Content Include="TestCase\zwc_test2.aspx" />
     <Content Include="TestCase\测试页面.txt" />
@@ -133,6 +134,13 @@
     </Compile>
     <Compile Include="Templates\Default\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestCase\xl_ziptest.aspx.cs">
+      <DependentUpon>xl_ziptest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestCase\xl_ziptest.aspx.designer.cs">
+      <DependentUpon>xl_ziptest.aspx</DependentUpon>
     </Compile>
     <Compile Include="TestCase\zwc_test1.aspx.cs">
       <DependentUpon>zwc_test1.aspx</DependentUpon>
