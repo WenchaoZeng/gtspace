@@ -13,7 +13,7 @@ using gtspace.Common.Contract;
 
 namespace gtspace.Plugin.Default
 {
-	public class Global : IPlugin
+	public class MyPlugin : IPlugin
 	{
 		#region IPlugin 成员
 

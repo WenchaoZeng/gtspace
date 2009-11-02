@@ -60,7 +60,6 @@ namespace gtspace.Common.Entity
 			// 没有找到
 			return null;
 		}
-
 		#endregion
 	}
 }
