@@ -13,7 +13,7 @@ namespace gtspace.Common
 	public class XmlHelper
 	{
 		/// <summary>
-		/// 加载Xml文件
+		/// 加载Xml文件并读取根节点
 		/// </summary>
 		/// <param name="path">Xml文件路径</param>
 		/// <returns>Xml的根节点</returns>
