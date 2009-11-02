@@ -42,7 +42,7 @@ namespace gtspace.Web.Admin
 		protected override void OnPreRender(EventArgs e)
 		{
 			base.OnPreRender(e);
-
+           
 			// 加载页面
 			_load = Server.UrlDecode(Request.QueryString["target"]);
 			if (string.IsNullOrEmpty(_load))

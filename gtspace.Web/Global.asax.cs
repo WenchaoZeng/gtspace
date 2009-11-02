@@ -122,7 +122,7 @@ namespace gtspace.Web
 					Response.WriteFile(Server.MapPath(Settings.ErrorPage));
 					Response.End();
 				}
-			}
+			}   
 			Server.ClearError();
 
 			// 调用插件
